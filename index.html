@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP Physics 1 · Unit 3 · Work, Energy, and Power</title>
+<style>
+:root {
+  --green:#0b6b4f;
+  --green-dark:#074d39;
+  --pale:#eaf5f1;
+  --blue:#1b5e8c;
+  --ink:#1f2b29;
+  --muted:#62716d;
+  --line:#d5e1dd;
+  --amber:#f0b84a;
+  --dev:#eef1f2;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f4f7f6;
+  color:var(--ink);
+  line-height:1.5;
+}
+header {
+  background:linear-gradient(135deg,var(--green-dark),var(--green));
+  color:white;
+  padding:44px 18px 38px;
+}
+.wrap { max-width:1120px; margin:auto; }
+.dev-banner {
+  display:inline-block;
+  background:#fff2c7;
+  color:#5e4500;
+  border:1px solid #e8c05c;
+  padding:7px 12px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.88rem;
+}
+h1 {
+  margin:.75rem 0 .2rem;
+  font-size:clamp(2.1rem,5vw,3.65rem);
+  line-height:1.06;
+}
+header p { max-width:850px; color:#eaf5f1; font-size:1.04rem; }
+nav {
+  background:white;
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+nav .wrap {
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:9px 14px;
+}
+nav a {
+  color:var(--green);
+  text-decoration:none;
+  font-weight:700;
+  white-space:nowrap;
+  padding:6px 9px;
+  border-radius:8px;
+}
+nav a:hover { background:var(--pale); }
+main { max-width:1120px; margin:auto; padding:24px 16px 70px; }
+.intro {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:18px 20px;
+  margin-bottom:18px;
+}
+.intro-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+.mini {
+  border-left:4px solid var(--green);
+  background:var(--pale);
+  padding:11px 13px;
+  border-radius:8px;
+}
+.lesson-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+  gap:17px;
+}
+.lesson-card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 4px 14px rgba(7,77,57,.05);
+}
+.lesson-head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.lesson-number {
+  font-weight:800;
+  color:var(--green);
+  font-size:1.05rem;
+}
+.status {
+  font-size:.78rem;
+  font-weight:700;
+  border-radius:999px;
+  padding:5px 9px;
+}
+.status.live { background:#d8f0e5; color:#105d37; }
+.status.dev { background:var(--dev); color:#66747a; }
+.lesson-card h2 {
+  color:var(--green-dark);
+  margin:.55rem 0 .65rem;
+  font-size:1.28rem;
+}
+.targets {
+  padding-left:1.15rem;
+  margin:.4rem 0 .7rem;
+}
+.targets li { margin-bottom:.68rem; }
+.targets span { color:#4f615d; font-size:.91rem; }
+.lesson-note {
+  background:#f8faf9;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:9px 11px;
+  color:#52645f;
+  font-size:.87rem;
+}
+.resource-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-top:14px;
+}
+.resource-btn {
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:var(--green-dark);
+  color:white;
+  padding:9px 8px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:.86rem;
+}
+.resource-btn:hover { background:var(--green); }
+.resource-btn.disabled {
+  background:#e4e9e7;
+  color:#8a9692;
+  cursor:not-allowed;
+}
+.resource-grid .resource-btn:last-child:nth-child(odd) {
+  grid-column:1 / -1;
+}
+.scope {
+  margin-top:22px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:18px 20px;
+}
+.scope h2 { color:var(--green-dark); }
+footer {
+  text-align:center;
+  color:#6d7a76;
+  padding:30px 15px;
+}
+@media(max-width:600px) {
+  .lesson-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="dev-banner">UNDER DEVELOPMENT · use available lessons now</span>
+    <h1>AP Physics 1 · Unit 3<br>Work, Energy, and Power</h1>
+    <p>One starting point for the whole unit. Each lesson will build toward the same five resource types: enquiry notes, an interactive where useful, student practice, worked solutions, and slides.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#l1">L1</a><a href="#l2">L2</a><a href="#l3">L3</a><a href="#l4">L4</a><a href="#l5">L5</a><a href="#l6">L6</a><a href="#l7">L7</a><a href="#l8">L8</a>
+    <a href="#how">How to use</a>
+  </div>
+</nav>
+
+<main>
+<section class="intro" id="how">
+  <strong>How to use this unit site</strong>
+  <p>Start with the lesson you are studying. Try the enquiry prompts and questions before revealing explanations. Use worked solutions only after attempting the work. Grey buttons simply mean that resource is still being built.</p>
+  <div class="intro-grid">
+    <div class="mini"><strong>Before class</strong><br>Preview the enquiry notes and learning targets.</div>
+    <div class="mini"><strong>During class</strong><br>Use the notes, interactive and student work alongside the lesson.</div>
+    <div class="mini"><strong>After class</strong><br>Use AP-style practice and worked solutions to close gaps.</div>
+    <div class="mini"><strong>Proposed unit test</strong><br>16 / 17 November 2026</div>
+  </div>
+</section>
+
+<div class="lesson-grid">
+  
+    <article class="lesson-card" id="l1">
+      <div class="lesson-head">
+        <div class="lesson-number">L1</div>
+        <span class="status live">Available</span>
+      </div>
+      <h2>Energy, systems, and energy stores</h2>
+      <ul class="targets"><li><strong>Energy, systems, and energy stores</strong><br><span>Identify the energy present in a chosen system, distinguish kinetic from potential energy, and describe mechanical energy as K + U.</span></li><li><strong>Translational kinetic energy</strong><br><span>Use K = ½mv², reason proportionally, and recognise the reference-frame dependence of measured kinetic energy.</span></li><li><strong>Potential energy: gravity and springs</strong><br><span>Treat potential energy as a system quantity and use gravitational and spring potential-energy relationships appropriately.</span></li></ul>
+      <p class="lesson-note">The enquiry HTML includes matching, reveal notes, hints and worked solutions; its interactive elements are built into the notes.</p>
+      <div class="resource-grid"><a class="resource-btn " href="l1/AP_P1_U3_L1_Energy_Workthrough.html">Notes / inquiry</a><a class="resource-btn " href="l1/AP_P1_U3_L1_Energy_Workthrough.html">Interactive</a><a class="resource-btn " href="l1/AP_P1_U3_L1_Student_Workpack.pdf">Student work</a><a class="resource-btn " href="l1/AP_P1_U3_L1_Worked_Solutions_and_Notes.pdf">Worked solutions</a><a class="resource-btn " href="l1/AP_P1_U3_L1_Teacher_Slides.pptx">Slides</a></div>
+    </article>
+    
+    <article class="lesson-card" id="l2">
+      <div class="lesson-head">
+        <div class="lesson-number">L2</div>
+        <span class="status dev">In development</span>
+      </div>
+      <h2>Energy transfers and conservation</h2>
+      <ul class="targets"><li><strong>Energy transfers and conservation</strong><br><span>Track energy transfers into, out of, and within a system; apply conservation of energy; and use energy bar charts.</span></li></ul>
+      
+      <div class="resource-grid"><span class="resource-btn disabled ">Notes / inquiry</span><span class="resource-btn disabled ">Interactive</span><span class="resource-btn disabled ">Student work</span><span class="resource-btn disabled ">Worked solutions</span><span class="resource-btn disabled ">Slides</span></div>
+    </article>
+    
+    <article class="lesson-card" id="l3">
+      <div class="lesson-head">
+        <div class="lesson-number">L3</div>
+        <span class="status dev">In development</span>
+      </div>
+      <h2>Power</h2>
+      <ul class="targets"><li><strong>Power</strong><br><span>Calculate average power, interpret power as a rate of energy transfer, and relate instantaneous power to the force component parallel to velocity.</span></li></ul>
+      
+      <div class="resource-grid"><span class="resource-btn disabled ">Notes / inquiry</span><span class="resource-btn disabled ">Interactive</span><span class="resource-btn disabled ">Student work</span><span class="resource-btn disabled ">Worked solutions</span><span class="resource-btn disabled ">Slides</span></div>
+    </article>
+    
+    <article class="lesson-card" id="l4">
+      <div class="lesson-head">
+        <div class="lesson-number">L4</div>
+        <span class="status dev">In development</span>
+      </div>
+      <h2>Mechanical work</h2>
+      <ul class="targets"><li><strong>Mechanical work by a force</strong><br><span>Determine positive, negative, and zero work from the force component parallel to displacement.</span></li><li><strong>Work from force–displacement graphs</strong><br><span>Determine work from signed area under an F∥–position graph, including variable-force situations.</span></li><li><strong>Conservative and nonconservative interactions</strong><br><span>Distinguish conservative from nonconservative interactions and account for dissipated mechanical energy.</span></li></ul>
+      
+      <div class="resource-grid"><span class="resource-btn disabled ">Notes / inquiry</span><span class="resource-btn disabled ">Interactive</span><span class="resource-btn disabled ">Student work</span><span class="resource-btn disabled ">Worked solutions</span><span class="resource-btn disabled ">Slides</span></div>
+    </article>
+    
+    <article class="lesson-card" id="l5">
+      <div class="lesson-head">
+        <div class="lesson-number">L5</div>
+        <span class="status dev">In development</span>
+      </div>
+      <h2>Spring energy derivation</h2>
+      <ul class="targets"><li><strong>Spring energy derivation</strong><br><span>Derive Uₛ = ½k(Δx)² from the spring force–displacement relationship and interpret the relevant area.</span></li></ul>
+      
+      <div class="resource-grid"><span class="resource-btn disabled ">Notes / inquiry</span><span class="resource-btn disabled ">Interactive</span><span class="resource-btn disabled ">Student work</span><span class="resource-btn disabled ">Worked solutions</span><span class="resource-btn disabled ">Slides</span></div>
+    </article>
+    
+    <article class="lesson-card" id="l6">
+      <div class="lesson-head">
+        <div class="lesson-number">L6</div>
+        <span class="status dev">In development</span>
+      </div>
+      <h2>Work–energy theorem and systems</h2>
+      <ul class="targets"><li><strong>Work–energy theorem</strong><br><span>Apply ΔK = Wnet and connect force analysis to changes in kinetic energy.</span></li><li><strong>System selection and energy accounting</strong><br><span>Choose a useful system boundary and decide whether an interaction is work across the boundary or an energy change within the system.</span></li></ul>
+      
+      <div class="resource-grid"><span class="resource-btn disabled ">Notes / inquiry</span><span class="resource-btn disabled ">Interactive</span><span class="resource-btn disabled ">Student work</span><span class="resource-btn disabled ">Worked solutions</span><span class="resource-btn disabled ">Slides</span></div>
+    </article>
+    
+    <article class="lesson-card" id="l7">
+      <div class="lesson-head">
+        <div class="lesson-number">L7</div>
+        <span class="status dev">In development</span>
+      </div>
+      <h2>Applications and choosing an energy method</h2>
+      <ul class="targets"><li><strong>Applications and choosing an energy method</strong><br><span>Solve unfamiliar mechanics problems by choosing an appropriate energy model and combining it with earlier ideas when necessary.</span></li></ul>
+      
+      <div class="resource-grid"><span class="resource-btn disabled ">Notes / inquiry</span><span class="resource-btn disabled ">Interactive</span><span class="resource-btn disabled ">Student work</span><span class="resource-btn disabled ">Worked solutions</span><span class="resource-btn disabled ">Slides</span></div>
+    </article>
+    
+    <article class="lesson-card" id="l8">
+      <div class="lesson-head">
+        <div class="lesson-number">L8</div>
+        <span class="status dev">In development</span>
+      </div>
+      <h2>Experimental and data-analysis skills</h2>
+      <ul class="targets"><li><strong>Experimental and data-analysis skills</strong><br><span>Design or interpret an investigation involving work, energy, or power; graph or linearize data; determine a model parameter; and justify a conclusion.</span></li></ul>
+      
+      <div class="resource-grid"><span class="resource-btn disabled ">Notes / inquiry</span><span class="resource-btn disabled ">Interactive</span><span class="resource-btn disabled ">Student work</span><span class="resource-btn disabled ">Worked solutions</span><span class="resource-btn disabled ">Slides</span></div>
+    </article>
+    
+</div>
+
+<section class="scope">
+  <h2>Unit learning progression</h2>
+  <p>This site is organised by your classroom lesson sequence rather than by simply reproducing the College Board topic order. The underlying AP skills are still tracked: energy stores and systems → conservation → power → work → spring energy → work–energy/system choice → applications → experiment and data analysis.</p>
+</section>
+</main>
+<footer>AP Physics 1 · Unit 3 · Work, Energy, and Power · Student resource hub</footer>
+</body>
+</html>
