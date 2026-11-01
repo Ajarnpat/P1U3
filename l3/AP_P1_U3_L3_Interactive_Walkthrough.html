@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AP Physics 1 U3 L3 - Mechanical Work and Power</title>
+<style>
+:root{--ink:#1e2a28;--green:#0b6b4f;--deep:#123b5d;--pale:#edf6f2;--gold:#d8a227;--bg:#f5f8f7;--bad:#9f2f2f;--good:#176b4b}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.52}
+header{background:linear-gradient(135deg,var(--deep),var(--green));color:white;padding:30px 18px}.wrap{max-width:980px;margin:auto}main{max-width:980px;margin:auto;padding:20px 16px 70px}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #d8e1de;padding:9px 12px;z-index:3}nav .wrap{display:flex;gap:8px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--deep);font-weight:700;font-size:.9rem;padding:5px 8px;border-radius:7px}nav a:hover{background:var(--pale)}
+section{background:white;border:1px solid #d8e1de;border-radius:16px;padding:20px;margin:18px 0;box-shadow:0 2px 8px rgba(0,0,0,.035)}h1{margin:.1rem 0;font-size:2rem}h2{color:var(--green);margin-top:0}h3{color:var(--deep)}
+.eq{font-family:Cambria,'Times New Roman',serif;font-size:1.35rem;text-align:center;background:var(--pale);padding:10px;border-radius:10px;font-weight:700;margin:10px 0}
+.call{background:#fff4d6;border-left:5px solid var(--gold);padding:11px 13px;border-radius:9px;margin:12px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:720px){.grid{grid-template-columns:1fr}}
+img{max-width:100%;height:auto;border-radius:10px}.check{border-top:1px dashed #cbd7d3;margin-top:16px;padding-top:13px}button{border:0;border-radius:8px;background:var(--green);color:white;padding:9px 12px;font-weight:700;cursor:pointer}button.alt{background:var(--deep)}.feedback{margin-top:8px;font-weight:700}.good{color:var(--good)}.bad{color:var(--bad)}details{margin:10px 0;background:#f8faf9;border-radius:9px;padding:9px 12px}summary{font-weight:700;cursor:pointer;color:var(--deep)}
+label{display:block;margin:7px 0}input[type=range]{width:100%}.meter{height:14px;background:#e5ece9;border-radius:999px;overflow:hidden}.meter span{display:block;height:100%;background:var(--green)}.tiny{font-size:.88rem;color:#65727a}
+</style></head>
+<body><header><div class="wrap"><div class="tiny" style="color:#d8ece6">AP Physics 1 • Unit 3 • Lesson 3</div><h1>Mechanical Work and Power</h1><p>Think → test → reveal. Equations and notation follow the current AP Physics 1 reference sheet.</p></div></header>
+<nav><div class="wrap"><a href="#work">Work</a><a href="#sign">Sign</a><a href="#net">Net work</a><a href="#graph">Graphs</a><a href="#power">Power</a><a href="#quiz">Quick check</a></div></nav>
+<main>
+<section id="work"><h2>1. Work by a constant force</h2><div class="grid"><div><p>Work is energy transferred into or out of a system by a force acting through a displacement. Only the component of the force parallel to the displacement contributes.</p><div class="eq">W = F<sub>∥</sub>d = Fd cosθ</div><p>θ is the angle between the force and displacement.</p></div><div><img src="assets/work_angle.png" alt="force at an angle"></div></div>
+<div class="check"><b>Quick check:</b> A 50 N force acts 60° to a 4.0 m displacement. What work does it do?<br><button onclick="show('c1','good','100 J. W = Fd cosθ = (50)(4.0)cos60°.')">Check answer</button><div id="c1" class="feedback"></div></div></section>
+<section id="sign"><h2>2. Positive, negative and zero work</h2><img src="assets/work_signs.png" alt="positive negative zero work"><p>Use the angle between force and displacement: cosθ &gt; 0 → positive; cosθ &lt; 0 → negative; cosθ = 0 → zero. Zero work also occurs if there is no displacement.</p>
+<div class="call"><b>Careful:</b> positive work by one force does not guarantee that the object speeds up. Speed changes are governed by <i>net work</i>.</div>
+<label>Explore the angle θ: <b><span id="ang">0</span>°</b></label><input id="theta" type="range" min="0" max="180" value="0" oninput="angleWork()"><div class="eq" id="angleEq"></div>
+<div class="check"><b>Quick check:</b> A person carries a box horizontally at constant height. What work does the upward support force do?<br><button onclick="show('c2','good','0 J. The force is perpendicular to the displacement.')">Reveal</button><div id="c2" class="feedback"></div></div></section>
+<section id="net"><h2>3. Net work and kinetic energy</h2><div class="eq">ΔK = ΣW<sub>i</sub> = ΣF<sub>∥,i</sub>d<sub>i</sub></div><p>The sum of the work done by all forces equals the change in translational kinetic energy.</p><div class="grid"><div class="call"><b>Net work &gt; 0</b><br>K increases.</div><div class="call"><b>Net work &lt; 0</b><br>K decreases.</div></div>
+<div class="check"><b>Quick check:</b> One force does +70 J and another does −25 J. What is ΔK?<br><button onclick="show('c3','good','+45 J. Net work = 70 − 25 = 45 J.')">Reveal</button><div id="c3" class="feedback"></div></div></section>
+<section id="graph"><h2>4. Variable force: use area</h2><p>For a variable force, work equals the <b>signed area</b> under the F<sub>∥</sub>-versus-displacement graph.</p><img src="assets/variable_force_graph.png" alt="variable force graph"><div class="check"><b>Quick check:</b> What is the net work for the graph above?<br><button onclick="show('c4','good','1100 J = ½(1.0)(400) + (2.0)(400) + ½(0.50)(400).')">Reveal</button><div id="c4" class="feedback"></div></div>
+<details><summary>Conservative vs nonconservative forces</summary><p>Conservative-force work is path-independent and is associated with potential energy. Friction and air resistance are nonconservative; their work is path-dependent. Kinetic friction acting opposite motion does negative work on the moving object.</p></details></section>
+<section id="power"><h2>5. Power: rate of energy transfer</h2><div class="eq">P<sub>avg</sub> = W/Δt = ΔE/Δt</div><div class="eq">P<sub>inst</sub> = F<sub>∥</sub>v = Fv cosθ</div><img src="assets/power_force_speed.png" alt="power depends on force and speed"><p>A constant force does not necessarily mean constant power. If the speed increases, the instantaneous power increases.</p>
+<label>Parallel force F: <b><span id="fval">100</span> N</b></label><input id="fr" type="range" min="20" max="300" value="100" step="10" oninput="powCalc()"><label>Speed v: <b><span id="vval">2.0</span> m s⁻¹</b></label><input id="vr" type="range" min="0" max="8" value="2" step="0.2" oninput="powCalc()"><div class="eq" id="powEq"></div></section>
+<section id="quiz"><h2>6. Quick check</h2><p>Answer first. Then reveal the explanation.</p>
+<div class="check"><b>Q1.</b> A force points opposite the motion. Its work is…<br><button class="alt" onclick="show('q1','good','Negative: the angle is 180°, so cosθ = −1.')">Show answer</button><div id="q1" class="feedback"></div></div>
+<div class="check"><b>Q2.</b> Net work is zero. What must remain unchanged?<br><button class="alt" onclick="show('q2','good','Kinetic energy. Velocity can still change direction.')">Show answer</button><div id="q2" class="feedback"></div></div>
+<div class="check"><b>Q3.</b> A constant horizontal force acts while speed increases. Is the instantaneous power constant?<br><button class="alt" onclick="show('q3','good','No. Pinst = Fv, so it increases with speed.')">Show answer</button><div id="q3" class="feedback"></div></div>
+<div class="check"><b>Q4.</b> What does area below the axis on an F∥-x graph mean?<br><button class="alt" onclick="show('q4','good','Negative work.')">Show answer</button><div id="q4" class="feedback"></div></div>
+</section>
+<section><h2>Resources</h2><p><a href="AP_P1_U3_L3_Notes_Mechanical_Work_and_Power.pdf">Notes PDF</a> · <a href="AP_P1_U3_L3_Practice_MC_FR.pdf">MC + FR practice</a> · <a href="AP_P1_U3_L3_Worked_Solutions.pdf">Worked solutions</a> · <a href="AP_P1_U3_L3_Teacher_Slides.pptx">Teacher slides</a></p></section>
+</main>
+<script>
+function show(id,cls,txt){let e=document.getElementById(id);e.className='feedback '+cls;e.innerHTML=txt}
+function angleWork(){let t=+theta.value;ang.textContent=t;let c=Math.cos(t*Math.PI/180);let sign=Math.abs(c)<1e-10?'zero':(c>0?'positive':'negative');angleEq.innerHTML='cosθ = '+c.toFixed(2)+' → '+sign+' work';}
+function powCalc(){let F=+fr.value,v=+vr.value;fval.textContent=F;vval.textContent=v.toFixed(1);powEq.innerHTML='P<sub>inst</sub> = Fv = '+(F*v).toFixed(0)+' W';}
+angleWork();powCalc();
+</script></body></html>
