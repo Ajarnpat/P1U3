@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP Physics 1 Unit 3 Lesson 5 — Work–Energy Theorem & Systems</title>
+<style>
+:root {
+  --ink:#10233b; --navy:#0b1f35; --panel:#f5f8fb; --line:#d8e2ec;
+  --teal:#12b8a6; --blue:#2787d9; --amber:#f1b84b; --red:#d95d5d;
+  --muted:#5c6d7d; --white:#fff; --green:#0f766e;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#eef3f7;color:var(--ink);line-height:1.48}
+header{background:linear-gradient(135deg,#0b1f35,#123b5b);color:white;padding:28px 22px 24px}
+.wrap{max-width:1100px;margin:auto}
+.eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#8fe2d7;font-weight:800}
+h1{margin:.25rem 0 .35rem;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05}
+.subtitle{color:#d7e6f2;max-width:850px}
+.toplinks,.modebar,.navrow{display:flex;gap:10px;flex-wrap:wrap}
+.toplinks{margin-top:18px}
+a.btn,button{border:0;border-radius:12px;padding:10px 14px;font-weight:750;cursor:pointer;text-decoration:none;display:inline-block}
+a.btn{background:#fff;color:#17344e}
+main{padding:22px}
+.intro{background:white;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:0 5px 18px #10233b0b}
+.eqrow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.eq{background:#eaf7f5;border-left:5px solid var(--teal);padding:12px;border-radius:10px;text-align:center;font-weight:800}
+.modebar{margin:16px 0}
+.modebar button{background:#dce7ef;color:#17344e}
+.modebar button.active{background:var(--navy);color:white}
+.progress{height:8px;background:#dce5ec;border-radius:20px;overflow:hidden}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--teal),var(--blue));width:0}
+.card{background:white;border:1px solid var(--line);border-radius:20px;margin-top:12px;overflow:hidden;box-shadow:0 8px 24px #10233b10}
+.cardhead{padding:18px 20px;background:#f9fbfd;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.cardhead h2{margin:0;font-size:1.35rem}
+.counter{font-size:.88rem;color:var(--muted);white-space:nowrap}
+.qbody{padding:20px}
+.prompt{font-size:1.08rem}
+.ledger-title{font-weight:850;margin:20px 0 9px}
+.ledger{display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,1fr);gap:14px;align-items:stretch}
+.leftenergy{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.box{border:2px solid #ccd9e4;background:#fafcfe;border-radius:13px;padding:12px;min-height:82px}
+.box strong{display:block;font-size:1.05rem;margin-bottom:6px}
+.box .value{font-size:1.18rem;font-weight:850;color:#153c5b}
+.wbox{border-color:#f0c36a;background:#fff8e9}
+.mech{margin-top:10px;border-color:#7bd1c8;background:#effcf9}
+.system-label{font-weight:850;margin:18px 0 6px;color:#173b59}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 4px}
+.actions button.hint{background:#e9f4ff;color:#175a8d}
+.actions button.solution{background:#eaf8f4;color:#12655d}
+.reveal{display:none;margin-top:12px;padding:15px;border-radius:13px}
+.reveal.show{display:block}
+.reveal.hintbox{background:#eef6ff;border:1px solid #bcd9f3}
+.reveal.solbox{background:#effbf7;border:1px solid #a8dfd4}
+.flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.flow span{background:white;border:1px solid #b9d8d2;border-radius:10px;padding:10px 14px}
+.navrow{justify-content:space-between;margin-top:16px}
+.navrow button{background:var(--navy);color:white;min-width:120px}
+.navrow button:disabled{opacity:.35;cursor:not-allowed}
+.notice{font-size:.92rem;color:var(--muted)}
+.notesgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+details.note{background:#f8fbfd;border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+details.note summary{cursor:pointer;font-weight:850;color:#174a6d}
+details.note p{margin:.55rem 0}
+@media(max-width:760px){.notesgrid{grid-template-columns:1fr}}
+.badge{background:#e8f6f4;color:#12655d;border-radius:999px;padding:5px 9px;font-size:.75rem;font-weight:800}
+footer{max-width:1100px;margin:10px auto 30px;padding:0 22px;color:#667887;font-size:.85rem}
+@media(max-width:760px){
+ .eqrow{grid-template-columns:1fr 1fr}
+ .ledger{grid-template-columns:1fr}
+ .leftenergy{grid-template-columns:1fr}
+ .cardhead{align-items:flex-start;flex-direction:column}
+}
+@media print{.modebar,.navrow,.actions,.toplinks{display:none!important} body{background:white} .card{box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+  <div class="eyebrow">AP Physics 1 · Unit 3 · Lesson 5</div>
+  <h1>Work–Energy Theorem & Systems</h1>
+  <div class="subtitle">Work through the 05a worksheet one question at a time. Use the hint only when needed; reveal the full worked solution after you have attempted the question.</div>
+  <div class="toplinks">
+    <a class="btn" href="AP_P1_U3_L5_Printable_Question_Pack.pdf">Printable Question Pack</a>
+    <a class="btn" href="AP_P1_U3_L5_Work_Energy_Worksheet.pdf">05a Worksheet</a>
+    <a class="btn" href="AP_P1_U3_L5_Worked_Solutions.pdf">Worked Solutions PDF</a>
+    <a class="btn" href="AP_P1_U3_L5_Teaching_Slides.pdf">Teaching Slides</a>
+    <a class="btn" href="AP_P1_U3_L5_Extra_Practice.pdf">08a Extra Practice PDF</a>
+  </div>
+</div>
+</header>
+<main class="wrap">
+<section class="intro">
+  <span class="badge">Working model used in 05a</span>
+  <h3>Build the energy account from the system boundary</h3>
+  <p>For a single object, the work–energy theorem is <b>ΔK = ΣW<sub>i</sub></b>. For the worksheet's simplified mechanical-energy model, use the ledger below. Do not count the same interaction twice.</p>
+  <div class="eqrow">
+    <div class="eq">ΔK = ΣW<sub>i</sub></div>
+    <div class="eq">ΔU<sub>g</sub> = mgΔy</div>
+    <div class="eq">U<sub>s</sub> = ½k(Δx)²</div>
+    <div class="eq">ΔE<sub>mech</sub> = ΔK + ΔU<sub>g</sub> + ΔU<sub>s</sub></div>
+  </div>
+  <p class="notice"><b>Worksheet convention:</b> g = 10 m s<sup>-2</sup>. Friction is generally treated as external in the mechanical-energy ledger; the finer-detail questions separately track internal energy generated by relative sliding.</p>
+  <div class="notesgrid">
+    <details class="note" open>
+      <summary>Worksheet pp. 1-2 · What is W<sub>ext</sub>?</summary>
+      <p>W<sub>ext</sub> is the <b>net work done by forces external to the selected system</b>. For a single object, the AP work-energy theorem is ΔK = ΣW<sub>i</sub>.</p>
+      <p>Before writing an equation, identify the physical objects inside the system. Everything else is the surroundings.</p>
+    </details>
+    <details class="note">
+      <summary>Gravity and springs · no double-dipping</summary>
+      <p><b>Earth inside:</b> represent the gravitational interaction with ΔU<sub>g</sub>; do not also include gravitational work in W<sub>ext</sub>.</p>
+      <p><b>Ideal spring inside:</b> represent the spring interaction with ΔU<sub>s</sub>; do not also include spring work in W<sub>ext</sub>.</p>
+    </details>
+    <details class="note">
+      <summary>Mechanical energy and force type</summary>
+      <p>E<sub>mech</sub> = K + U. Here U may include gravitational and elastic potential energy; internal energy is not part of mechanical energy.</p>
+      <p>Gravity and ideal-spring forces are conservative. Sliding friction and drag are nonconservative.</p>
+    </details>
+    <details class="note">
+      <summary>Friction · work vs internal energy</summary>
+      <p>This worksheet usually treats friction as external in the mechanical-energy ledger. Work by friction on one object depends on that object's displacement.</p>
+      <p>For sliding contact, internal energy generation depends on the relative sliding distance: ΔU<sub>int</sub> = f<sub>k</sub>d<sub>rel</sub> ≥ 0.</p>
+    </details>
+  </div>
+
+</section>
+
+<div class="modebar">
+  <button id="mainBtn" class="active" onclick="setMode('main')">05a Worksheet</button>
+  <button id="extraBtn" onclick="setMode('extra')">Extra Practice — 08a</button>
+  <button id="quizBtn" onclick="setMode('quiz')">Quick Checks</button>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<section class="card">
+  <div class="cardhead"><h2 id="title"></h2><div class="counter" id="counter"></div></div>
+  <div class="qbody">
+    <div class="prompt" id="question"></div>
+    <div id="ledgerArea"></div>
+    <div class="actions">
+      <button class="hint" onclick="toggle('hintBox')">Hint</button>
+      <button class="solution" onclick="toggle('solutionBox')">Worked solution</button>
+    </div>
+    <div class="reveal hintbox" id="hintBox"></div>
+    <div class="reveal solbox" id="solutionBox"></div>
+    <div class="navrow">
+      <button id="prev" onclick="move(-1)">← Previous</button>
+      <button id="next" onclick="move(1)">Next →</button>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  AP Physics 1 · Unit 3 · Lesson 5 · Work–Energy Theorem & Systems
+</footer>
+
+<script>
+const DATA = {"main": [{"title": "1. Lifting a 2.0 kg block", "question": "A 2.0 kg block is lifted from rest by a vertical force of 25 N through 0.60 m. Use <b>g = 10 m s<sup>-2</sup></b>.<br><br>\nCompare two choices of system: <b>(A) block + Earth</b> and <b>(B) block only</b>. Complete the energy account for each system.", "hint": "First determine the work done by the applied force and by gravity. Then ask which interaction is <em>inside</em> each system. If Earth is inside, use ΔU<sub>g</sub>; if Earth is outside, gravity contributes to W<sub>ext</sub>.", "solution": "<b>Applied-force work</b><br>\nEquation: W = Fd cosθ<br>\nRearrange: no rearrangement required<br>\nSubstitute: W = (25)(0.60)cos0°<br>\nAnswer: W<sub>applied</sub> = <b>+15 J</b><br><br>\n\n<b>Gravity</b><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W = (20)(0.60)cos180°<br>\nAnswer: W<sub>gravity</sub> = <b>-12 J</b><br><br>\n\n<b>Change in kinetic energy</b><br>\nEquation: ΔK = ΣW<sub>i</sub><br>\nSubstitute: ΔK = 15 - 12<br>\nAnswer: ΔK = <b>+3.0 J</b><br><br>\n\n<b>Final speed</b><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(3.0)/2.0]<br>\nAnswer: v = <b>1.73 m s<sup>-1</sup></b>.", "ledgers": [{"label": "System A: block + Earth", "dk": "+3.0 J", "dug": "+12 J", "dus": "0", "wext": "+15 J", "demech": "+15 J", "note": "Gravity is internal; the person does the external work."}, {"label": "System B: block only", "dk": "+3.0 J", "dug": "0", "dus": "0", "wext": "+3.0 J", "demech": "+3.0 J", "note": "Wext = +15 J (person) - 12 J (gravity)."}]}, {"title": "2. Lowering the block", "question": "The same 2.0 kg block is lowered from rest through 0.60 m. The person exerts a constant <b>15 N upward</b> force while the displacement is downward.<br><br>\nComplete the energy account for <b>(A) block + Earth</b> and <b>(B) block only</b>.", "hint": "The applied force and the displacement are opposite, so the person's work is negative. Gravity and displacement are in the same direction, so gravity does positive work on the block.", "solution": "<b>Applied-force work</b><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W = (15)(0.60)cos180°<br>\nAnswer: W<sub>applied</sub> = <b>-9.0 J</b><br><br>\n\n<b>Gravity</b><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W = (20)(0.60)cos0°<br>\nAnswer: W<sub>gravity</sub> = <b>+12 J</b><br><br>\n\n<b>Change in kinetic energy</b><br>\nEquation: ΔK = ΣW<sub>i</sub><br>\nSubstitute: ΔK = -9 + 12<br>\nAnswer: ΔK = <b>+3.0 J</b><br><br>\n\n<b>Final speed</b><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(3.0)/2.0]<br>\nAnswer: v = <b>1.73 m s<sup>-1</sup> downward</b>.", "ledgers": [{"label": "System A: block + Earth", "dk": "+3.0 J", "dug": "-12 J", "dus": "0", "wext": "-9.0 J", "demech": "-9.0 J", "note": "Gravity is internal; the person's external work is negative."}, {"label": "System B: block only", "dk": "+3.0 J", "dug": "0", "dus": "0", "wext": "+3.0 J", "demech": "+3.0 J", "note": "Wext = -9.0 J (person) + 12 J (gravity)."}]}, {"title": "3(a). Projectile: horizontal velocity component", "question": "A stone is launched at 24 m s<sup>-1</sup>, 60° above the horizontal. Determine the horizontal component of its initial velocity.", "hint": "Resolve the initial velocity. The adjacent component to the 60° angle is the horizontal component.", "solution": "Equation: v<sub>0x</sub> = v<sub>0</sub> cosθ<br>\nRearrange: no rearrangement required<br>\nSubstitute: v<sub>0x</sub> = (24)cos60°<br>\nAnswer: v<sub>0x</sub> = <b>12.0 m s<sup>-1</sup></b>.", "ledgers": []}, {"title": "3(b). Projectile: stone + Earth system", "question": "From launch to the highest point, take the <b>stone + Earth</b> as the system. Determine the relevant energy terms. Air resistance is negligible.", "hint": "At maximum height v<sub>y</sub> = 0, but v<sub>x</sub> is still 12.0 m s<sup>-1</sup>. Because Earth is inside the system, gravity is internal and W<sub>ext</sub> = 0.", "solution": "At the top, the speed is 12.0 m s<sup>-1</sup>.<br><br>\nEquation: ΔK = ½m(v² - v<sub>0</sub>²)<br>\nSubstitute: ΔK = ½m(12.0² - 24.0²)<br>\nAnswer: ΔK = <b>-216m J</b> (m in kg).<br><br>\nWith no external work:<br>\nEquation: ΔK + ΔU<sub>g</sub> = W<sub>ext</sub><br>\nRearrange: ΔU<sub>g</sub> = W<sub>ext</sub> - ΔK<br>\nSubstitute: ΔU<sub>g</sub> = 0 - (-216m)<br>\nAnswer: ΔU<sub>g</sub> = <b>+216m J</b>.", "ledgers": [{"label": "System: stone + Earth", "dk": "-216m J", "dug": "+216m J", "dus": "0", "wext": "0", "demech": "0", "note": "The loss of kinetic energy appears as gravitational potential energy."}]}, {"title": "3(c). Projectile: maximum height", "question": "Using the stone + Earth system, determine the maximum height above the launch point.", "hint": "Use ΔK + ΔU<sub>g</sub> = 0 and the AP near-Earth relationship ΔU<sub>g</sub> = mgΔy. Mass cancels.", "solution": "Equation: ΔK + ΔU<sub>g</sub> = 0<br>\nUse: ΔK = ½m(v² - v<sub>0</sub>²), and ΔU<sub>g</sub> = mgΔy<br>\nSubstitute: ½m(12.0² - 24.0²) + m(10)Δy = 0<br>\nRearrange: Δy = [24.0² - 12.0²]/[2(10)]<br>\nSubstitute: Δy = (576 - 144)/20<br>\nAnswer: maximum height = <b>21.6 m</b>.", "ledgers": [{"label": "System: stone + Earth", "dk": "-216m J", "dug": "+216m J", "dus": "0", "wext": "0", "demech": "0", "note": "Mass cancels when solving for the height."}]}, {"title": "3(d). Projectile: stone-only system", "question": "Now take the <b>stone only</b> as the system. Determine the relevant terms and hence the maximum height.", "hint": "Earth is outside the system, so the stone has no gravitational potential-energy term. Gravity does external work on the stone.", "solution": "Equation: ΔK = W<sub>ext</sub><br>\nFor gravity: W<sub>ext</sub> = W<sub>gravity</sub> = -mgΔy<br>\nSubstitute: ½m(12.0² - 24.0²) = -m(10)Δy<br>\nRearrange: Δy = [24.0² - 12.0²]/[2(10)]<br>\nAnswer: maximum height = <b>21.6 m</b>.<br><br>\nThe physics is unchanged; only the bookkeeping changes with the system boundary.", "ledgers": [{"label": "System: stone only", "dk": "-216m J", "dug": "0", "dus": "0", "wext": "-216m J", "demech": "-216m J", "note": "Gravity is external to the stone-only system."}]}, {"title": "4(a)(i). Sliding to a stop", "question": "A 5.0 kg block moves at 2.0 m s<sup>-1</sup> along a conveyor belt. The belt is then stationary while the block slides. Kinetic friction is 16 N opposite the motion. Taking the <b>block</b> as the system, determine the relevant energy terms and the stopping distance.", "hint": "Only friction does nonzero work on the horizontally moving block. First find ΔK, then set W<sub>friction</sub> = ΔK.", "solution": "<b>Change in kinetic energy</b><br>\nEquation: ΔK = ½m(v² - v<sub>0</sub>²)<br>\nSubstitute: ΔK = ½(5.0)(0² - 2.0²)<br>\nAnswer: ΔK = <b>-10 J</b>.<br><br>\n\n<b>Stopping distance</b><br>\nEquation: W = Fd cosθ<br>\nUse: W<sub>friction</sub> = ΔK<br>\nSubstitute: -10 = (16)d cos180°<br>\nRearrange: d = 10/16<br>\nAnswer: d = <b>0.625 m</b>.", "ledgers": [{"label": "System: block", "dk": "-10 J", "dug": "0", "dus": "0", "wext": "-10 J", "demech": "-10 J", "note": "Friction is the only force doing nonzero external work on the block."}]}, {"title": "4(a)(ii). Internal energy generated", "question": "For the same sliding-to-a-stop situation, determine the internal energy generated by sliding friction.", "hint": "For sliding contact, use the relative sliding distance. Here the belt is stationary, so the relative sliding distance equals the block's 0.625 m displacement.", "solution": "Equation: ΔU<sub>int</sub> = f<sub>k</sub>d<sub>rel</sub><br>\nSubstitute: ΔU<sub>int</sub> = (16)(0.625)<br>\nAnswer: ΔU<sub>int</sub> = <b>+10 J</b>.<br><br>\nThis is energy generated internally at the contacting surfaces; it is distinct from the work done on either single object.", "ledgers": []}, {"title": "4(a)(iii). Work done on the stationary belt", "question": "State the mechanical work done by friction on the stationary belt and comment on the physical situation.", "hint": "Mechanical work on an object uses the displacement of the point on that object where the force acts. In the ideal model the belt does not translate.", "solution": "Equation: W = Fd cosθ<br>\nSubstitute: W = F(0)cosθ<br>\nAnswer: work done on the stationary belt = <b>0 J</b>.<br><br>\nEven though the ideal belt has zero translational displacement, the sliding contact can still generate internal energy in the two surfaces. Real belts also deform slightly.", "ledgers": []}, {"title": "4(b)(i). Static friction: work on the block", "question": "A 5.0 kg block starts from rest on a conveyor belt. The belt accelerates the block without slipping using a constant static-friction force of 20 N to the right over 0.50 m. Determine the work done on the block by friction.", "hint": "Force and displacement are in the same direction.", "solution": "Equation: W = Fd cosθ<br>\nSubstitute: W = (20)(0.50)cos0°<br>\nAnswer: W<sub>friction on block</sub> = <b>+10 J</b>.", "ledgers": [{"label": "System: block", "dk": "+10 J", "dug": "0", "dus": "0", "wext": "+10 J", "demech": "+10 J", "note": "Static friction transfers energy into the block."}]}, {"title": "4(b)(ii). Static friction: final speed", "question": "Hence determine the kinetic energy gained by the block and its final speed.", "hint": "For the block, the work-energy theorem gives ΔK = W<sub>net</sub>. It starts from rest.", "solution": "Equation: ΔK = W<sub>net</sub><br>\nSubstitute: ΔK = +10<br>\nAnswer: ΔK = <b>+10 J</b>.<br><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(10)/5.0]<br>\nAnswer: v = <b>2.0 m s<sup>-1</sup></b>.", "ledgers": [{"label": "System: block", "dk": "+10 J", "dug": "0", "dus": "0", "wext": "+10 J", "demech": "+10 J", "note": "Initial K = 0; final K = 10 J."}]}, {"title": "4(b)(iii). Static friction: dissipation", "question": "How much internal energy is generated by friction at the contact when there is no slipping?", "hint": "Internal energy generation from sliding depends on relative sliding distance, not on the block's ground displacement.", "solution": "Equation: ΔU<sub>int</sub> = f<sub>k</sub>d<sub>rel</sub> applies to sliding contact.<br>\nHere there is <b>no relative sliding</b>, so d<sub>rel</sub> = 0.<br>\nAnswer: sliding-friction dissipation = <b>0 J</b>.", "ledgers": []}, {"title": "4(b)(iv). Static friction: work on the belt", "question": "Determine the work done on the belt by friction from the block.", "hint": "The friction force on the belt is opposite the belt's displacement. The belt and block move together through 0.50 m.", "solution": "Equation: W = Fd cosθ<br>\nSubstitute: W = (20)(0.50)cos180°<br>\nAnswer: W<sub>friction on belt</sub> = <b>-10 J</b>.", "ledgers": []}, {"title": "4(c)(i-ii). Kinetic friction can do positive work", "question": "A stationary 5.0 kg block is placed on a moving belt. Kinetic friction on the block is 0.80 N to the right. The block moves 0.10 m relative to the ground before matching the constant belt speed. Determine (i) the work done on the block and (ii) its final speed.", "hint": "Although the contact is sliding, friction points in the same direction as the block's displacement, so its work on the block is positive.", "solution": "<b>(i) Work on the block</b><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W = (0.80)(0.10)cos0°<br>\nAnswer: W<sub>friction on block</sub> = <b>+0.080 J</b>.<br><br>\n\n<b>(ii) Final speed</b><br>\nEquation: ΔK = W<sub>net</sub><br>\nSubstitute: ΔK = +0.080<br>\nAnswer: K<sub>f</sub> = <b>0.080 J</b>.<br><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(0.080)/5.0]<br>\nAnswer: v = <b>0.179 m s<sup>-1</sup></b>.", "ledgers": [{"label": "System: block", "dk": "+0.080 J", "dug": "0", "dus": "0", "wext": "+0.080 J", "demech": "+0.080 J", "note": "Kinetic friction does positive work on this block."}]}, {"title": "4(c)(iii-iv). Relative sliding and work on the belt", "question": "Determine (iii) the internal energy generated by the sliding contact and (iv) the work done on the belt by the block.", "hint": "You need the relative sliding distance, not just the block displacement. Find the acceleration and time, then the belt displacement. The belt speed equals the block's final speed when they match.", "solution": "<b>Acceleration</b><br>\nEquation: F<sub>net</sub> = ma<br>\nRearrange: a = F<sub>net</sub>/m<br>\nSubstitute: a = 0.80/5.0<br>\nAnswer: a = <b>0.160 m s<sup>-2</sup></b>.<br><br>\n\n<b>Time</b><br>\nEquation: v = v<sub>0</sub> + at<br>\nRearrange: t = (v - v<sub>0</sub>)/a<br>\nSubstitute: t = (0.1789 - 0)/0.160<br>\nAnswer: t = <b>1.118 s</b>.<br><br>\n\n<b>Belt displacement</b><br>\nEquation: d = vt<br>\nSubstitute: d<sub>belt</sub> = (0.1789)(1.118)<br>\nAnswer: d<sub>belt</sub> = <b>0.200 m</b>.<br><br>\n\n<b>Relative sliding</b><br>\nEquation: d<sub>rel</sub> = d<sub>belt</sub> - d<sub>block</sub><br>\nSubstitute: d<sub>rel</sub> = 0.200 - 0.100<br>\nAnswer: d<sub>rel</sub> = <b>0.100 m</b>.<br><br>\n\n<b>(iii) Internal energy generated</b><br>\nEquation: ΔU<sub>int</sub> = f<sub>k</sub>d<sub>rel</sub><br>\nSubstitute: ΔU<sub>int</sub> = (0.80)(0.100)<br>\nAnswer: ΔU<sub>int</sub> = <b>+0.080 J</b>.<br><br>\n\n<b>(iv) Work on the belt</b><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W = (0.80)(0.200)cos180°<br>\nAnswer: W<sub>friction on belt</sub> = <b>-0.160 J</b>.", "ledgers": []}, {"title": "4(c)(v). Energy-flow diagram", "question": "Represent the energy flow while the motor keeps the moving belt at constant speed.", "hint": "The belt loses 0.160 J through the friction interaction. Compare this with the block's kinetic-energy gain and the internal energy generated at the contact.", "solution": "The motor replaces the energy removed from the constant-speed belt:<br><br>\n<div class=\"flow\"><span>motor / belt<br><b>0.160 J</b></span><b>→</b><span>block K<br><b>+0.080 J</b></span><b>+</b><span>internal energy<br><b>+0.080 J</b></span></div><br>\nCheck: <b>0.160 J = 0.080 J + 0.080 J</b>.", "ledgers": []}], "extra": [{"title": "A. Rucksack: system = rucksack only", "question": "A 5 kg rucksack is lifted 2.0 m from floor to hook. It starts and ends at rest. System = <b>rucksack only</b>.", "hint": "The rucksack has no gravitational potential energy by itself. Gravity and the lifter are external. Since initial and final speeds are zero, ΔK = 0.", "solution": "Equation: ΔK = W<sub>ext</sub><br>\nSubstitute: 0 = W<sub>ext</sub><br>\nAnswer: W<sub>ext</sub> = <b>0 J net</b>.<br><br>\nIndividually, the lifter does +100 J and gravity does -100 J.", "ledgers": [{"label": "Energy account", "dk": "0", "dug": "0", "dus": "0", "wext": "0", "demech": "+0 J", "note": "Net external work is zero."}]}, {"title": "B. Rucksack: system = rucksack + Earth", "question": "Same lift, but system = <b>rucksack + Earth</b>.", "hint": "Gravity is now internal. The lifter is the external agent.", "solution": "Equation: ΔU<sub>g</sub> = mgΔy<br>\nSubstitute: ΔU<sub>g</sub> = (5)(10)(2.0)<br>\nAnswer: ΔU<sub>g</sub> = <b>+100 J</b>.<br><br>\nEquation: ΔK + ΔU<sub>g</sub> = W<sub>ext</sub><br>\nSubstitute: 0 + 100 = W<sub>ext</sub><br>\nAnswer: W<sub>ext</sub> = <b>+100 J</b>.", "ledgers": [{"label": "Energy account", "dk": "0", "dug": "+100 J", "dus": "0", "wext": "+100 J", "demech": "+100 J", "note": "The lifter transfers 100 J into the system."}]}, {"title": "C. Sandbag, no friction", "question": "A 10 kg sandbag is pulled horizontally 2.5 m by a constant 8 N force. Friction is negligible; it starts from rest. System = sandbag.", "hint": "Only the pull does nonzero work.", "solution": "Equation: W = Fd cosθ<br>\nSubstitute: W = (8)(2.5)cos0°<br>\nAnswer: W<sub>ext</sub> = <b>+20 J</b>.<br><br>\nEquation: ΔK = W<sub>ext</sub><br>\nAnswer: ΔK = <b>+20 J</b>.<br><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(20)/10]<br>\nAnswer: v = <b>2.0 m s<sup>-1</sup></b>.", "ledgers": [{"label": "Energy account", "dk": "+20 J", "dug": "0", "dus": "0", "wext": "+20 J", "demech": "+20 J", "note": ""}]}, {"title": "D. Sandbag at constant speed", "question": "The same 10 kg sandbag is pulled 2.5 m by 8 N while moving at a constant 1.0 m s<sup>-1</sup>. System = sandbag.", "hint": "Constant speed means ΔK = 0, so the net external work must be zero.", "solution": "Pulling work = +20 J. Therefore friction must do -20 J.<br><br>\nEquation: ΔK = W<sub>ext</sub><br>\nSubstitute: 0 = +20 - 20<br>\nAnswer: W<sub>ext</sub> = <b>0 J net</b>.", "ledgers": [{"label": "Energy account", "dk": "0", "dug": "0", "dus": "0", "wext": "0", "demech": "0", "note": "Pull +20 J; friction -20 J."}]}, {"title": "E. Sandbag with 2 N friction", "question": "A 10 kg sandbag is pulled 2.5 m by 8 N; average friction is 2 N. It starts from rest. System = sandbag.", "hint": "Find the work by the pull and by friction, then add them.", "solution": "Equation: W<sub>ext</sub> = W<sub>pull</sub> + W<sub>friction</sub><br>\nSubstitute: W<sub>ext</sub> = (8)(2.5) + (2)(2.5)cos180°<br>\nAnswer: W<sub>ext</sub> = <b>+15 J</b>.<br><br>\nEquation: ΔK = W<sub>ext</sub><br>\nAnswer: ΔK = <b>+15 J</b>.<br><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(15)/10]<br>\nAnswer: v = <b>1.73 m s<sup>-1</sup></b>.", "ledgers": [{"label": "Energy account", "dk": "+15 J", "dug": "0", "dus": "0", "wext": "+15 J", "demech": "+15 J", "note": ""}]}, {"title": "F. Sandbag up shallow incline: bag + Earth", "question": "A 10 kg sandbag moves 2.5 m up an incline, rising 0.10 m. A constant <b>horizontal</b> 8 N pull acts; average friction is 2 N. Initial speed = 1.0 m s<sup>-1</sup>. System = <b>sandbag + Earth</b>.", "hint": "Use sinθ = 0.10/2.5 to find the small incline angle. The horizontal force is not exactly parallel to the displacement. Friction is treated as external in this worksheet.", "solution": "Equation: sinθ = Δy/d<br>\nSubstitute: sinθ = 0.10/2.5<br>\nAnswer: θ = <b>2.29°</b>.<br><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W<sub>pull</sub> = (8)(2.5)cos2.29°<br>\nAnswer: W<sub>pull</sub> = <b>+19.98 J ≈ +20.0 J</b>.<br><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W<sub>friction</sub> = (2)(2.5)cos180°<br>\nAnswer: W<sub>friction</sub> = <b>-5.0 J</b>.<br><br>\nEquation: ΔU<sub>g</sub> = mgΔy<br>\nSubstitute: ΔU<sub>g</sub> = (10)(10)(0.10)<br>\nAnswer: ΔU<sub>g</sub> = <b>+10 J</b>.<br><br>\nEquation: ΔK + ΔU<sub>g</sub> = W<sub>ext</sub><br>\nRearrange: ΔK = W<sub>ext</sub> - ΔU<sub>g</sub><br>\nSubstitute: ΔK = (19.98 - 5.0) - 10<br>\nAnswer: ΔK = <b>+4.98 J ≈ +5.0 J</b>.", "ledgers": [{"label": "Energy account", "dk": "+5.0 J", "dug": "+10 J", "dus": "0", "wext": "+15.0 J", "demech": "+15.0 J", "note": "Rounded values shown."}]}, {"title": "G. Same incline: sandbag only", "question": "Same physical situation as F, but system = <b>sandbag only</b>.", "hint": "Earth is outside, so gravity contributes external work rather than ΔU<sub>g</sub>.", "solution": "Pulling work ≈ +19.98 J; friction work = -5.0 J.<br><br>\nEquation: W<sub>gravity</sub> = -mgΔy<br>\nSubstitute: W<sub>gravity</sub> = -(10)(10)(0.10)<br>\nAnswer: W<sub>gravity</sub> = <b>-10 J</b>.<br><br>\nEquation: ΔK = W<sub>ext</sub><br>\nSubstitute: ΔK = 19.98 - 5.0 - 10<br>\nAnswer: ΔK = <b>+4.98 J ≈ +5.0 J</b>.", "ledgers": [{"label": "Energy account", "dk": "+5.0 J", "dug": "0", "dus": "0", "wext": "+5.0 J", "demech": "+5.0 J", "note": "Same physical ΔK as F; different bookkeeping."}]}, {"title": "H. Box up frictionless slope: box only", "question": "A 65 kg box is pushed 2.0 m up a frictionless 30° slope by a 600 N force parallel to the slope. System = box.", "hint": "For the box-only system, gravity is external. The vertical rise is d sin30°.", "solution": "Equation: Δy = d sinθ<br>\nSubstitute: Δy = (2.0)sin30°<br>\nAnswer: Δy = <b>1.0 m</b>.<br><br>\nEquation: W<sub>applied</sub> = Fd<br>\nSubstitute: W<sub>applied</sub> = (600)(2.0)<br>\nAnswer: W<sub>applied</sub> = <b>+1200 J</b>.<br><br>\nEquation: W<sub>gravity</sub> = -mgΔy<br>\nSubstitute: W<sub>gravity</sub> = -(65)(10)(1.0)<br>\nAnswer: W<sub>gravity</sub> = <b>-650 J</b>.<br><br>\nEquation: ΔK = W<sub>ext</sub><br>\nSubstitute: ΔK = 1200 - 650<br>\nAnswer: ΔK = <b>+550 J</b>.", "ledgers": [{"label": "Energy account", "dk": "+550 J", "dug": "0", "dus": "0", "wext": "+550 J", "demech": "+550 J", "note": ""}]}, {"title": "I. Same slope: box + Earth", "question": "Same physical situation as H, but system = <b>box + Earth</b>.", "hint": "Gravity is internal, so use ΔU<sub>g</sub> instead of W<sub>gravity</sub>.", "solution": "Equation: ΔU<sub>g</sub> = mgΔy<br>\nSubstitute: ΔU<sub>g</sub> = (65)(10)(1.0)<br>\nAnswer: ΔU<sub>g</sub> = <b>+650 J</b>.<br><br>\nEquation: ΔK + ΔU<sub>g</sub> = W<sub>ext</sub><br>\nSubstitute: ΔK + 650 = 1200<br>\nRearrange: ΔK = 1200 - 650<br>\nAnswer: ΔK = <b>+550 J</b>.", "ledgers": [{"label": "Energy account", "dk": "+550 J", "dug": "+650 J", "dus": "0", "wext": "+1200 J", "demech": "+1200 J", "note": ""}]}, {"title": "J. Rough slope: box only", "question": "Same 65 kg box and 600 N push, but average friction is 5 N. System = box.", "hint": "Add the negative work by friction to the box-only external-work total.", "solution": "Applied work = +1200 J; gravity work = -650 J.<br><br>\nEquation: W<sub>friction</sub> = Fd cos180°<br>\nSubstitute: W<sub>friction</sub> = (5)(2.0)cos180°<br>\nAnswer: W<sub>friction</sub> = <b>-10 J</b>.<br><br>\nEquation: ΔK = W<sub>ext</sub><br>\nSubstitute: ΔK = 1200 - 650 - 10<br>\nAnswer: ΔK = <b>+540 J</b>.", "ledgers": [{"label": "Energy account", "dk": "+540 J", "dug": "0", "dus": "0", "wext": "+540 J", "demech": "+540 J", "note": ""}]}, {"title": "K. Rough slope: box + Earth", "question": "Same rough-slope problem, but system = <b>box + Earth</b>. As in the supplied worksheet, treat friction as external.", "hint": "The push and friction cross the chosen system boundary in this simplified model; gravity is represented by ΔU<sub>g</sub>.", "solution": "Equation: ΔU<sub>g</sub> = mgΔy<br>\nSubstitute: ΔU<sub>g</sub> = (65)(10)(1.0)<br>\nAnswer: ΔU<sub>g</sub> = <b>+650 J</b>.<br><br>\nEquation: W<sub>ext</sub> = W<sub>push</sub> + W<sub>friction</sub><br>\nSubstitute: W<sub>ext</sub> = 1200 - 10<br>\nAnswer: W<sub>ext</sub> = <b>+1190 J</b>.<br><br>\nEquation: ΔK + ΔU<sub>g</sub> = W<sub>ext</sub><br>\nSubstitute: ΔK + 650 = 1190<br>\nAnswer: ΔK = <b>+540 J</b>.", "ledgers": [{"label": "Energy account", "dk": "+540 J", "dug": "+650 J", "dus": "0", "wext": "+1190 J", "demech": "+1190 J", "note": ""}]}, {"title": "L. Compressed spring: ball only", "question": "A spring has k = 2.5 N cm<sup>-1</sup> and relaxed length 8.0 cm. It is compressed to half its relaxed length and fires a 0.10 kg ball. System = ball.", "hint": "Convert k to N m<sup>-1</sup>. Compression = 4.0 cm = 0.040 m. The spring is outside the ball-only system, so it does external work.", "solution": "Convert: 2.5 N cm<sup>-1</sup> = 250 N m<sup>-1</sup>.<br><br>\nEquation: U<sub>s</sub> = ½k(Δx)²<br>\nSubstitute: U<sub>s</sub> = ½(250)(0.040)²<br>\nAnswer: initial spring energy = <b>0.200 J</b>.<br><br>\nFor the ball-only system, this appears as positive external work:<br>\nAnswer: W<sub>ext</sub> = ΔK = <b>+0.200 J</b>.<br><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(0.200)/0.10]<br>\nAnswer: v = <b>2.0 m s<sup>-1</sup></b>.", "ledgers": [{"label": "Energy account", "dk": "+0.200 J", "dug": "0", "dus": "0", "wext": "+0.200 J", "demech": "+0.200 J", "note": ""}]}, {"title": "M. Compressed spring: ball + spring", "question": "Same spring launch, but system = <b>ball + spring</b>.", "hint": "The spring interaction is now internal. The spring loses energy while the ball gains the same amount of kinetic energy.", "solution": "Equation: ΔK + ΔU<sub>s</sub> = W<sub>ext</sub><br>\nSubstitute: +0.200 + (-0.200) = 0<br>\nAnswer: W<sub>ext</sub> = <b>0 J</b>; mechanical energy is conserved within the ideal system.", "ledgers": [{"label": "Energy account", "dk": "+0.200 J", "dug": "0", "dus": "-0.200 J", "wext": "0", "demech": "0", "note": ""}]}, {"title": "N. Pinball: Earth + ball + spring", "question": "A 45 g ball speeds up from 0.64 to 1.2 m s<sup>-1</sup> while rising 8.5 cm and moving 55 cm along the slope. Average friction = 0.14 N. System = <b>Earth + ball + spring</b>.", "hint": "Compute ΔK and ΔU<sub>g</sub>. Friction is external in the supplied worksheet model. Then use the energy account to infer ΔU<sub>s</sub>.", "solution": "Convert: m = 0.045 kg; Δy = 0.085 m; d = 0.55 m.<br><br>\nEquation: ΔK = ½m(v² - v<sub>0</sub>²)<br>\nSubstitute: ΔK = ½(0.045)(1.2² - 0.64²)<br>\nAnswer: ΔK = <b>+0.0232 J</b>.<br><br>\nEquation: ΔU<sub>g</sub> = mgΔy<br>\nSubstitute: ΔU<sub>g</sub> = (0.045)(10)(0.085)<br>\nAnswer: ΔU<sub>g</sub> = <b>+0.0383 J</b>.<br><br>\nEquation: W<sub>friction</sub> = Fd cos180°<br>\nSubstitute: W<sub>friction</sub> = (0.14)(0.55)cos180°<br>\nAnswer: W<sub>ext</sub> = <b>-0.0770 J</b>.<br><br>\nEquation: ΔK + ΔU<sub>g</sub> + ΔU<sub>s</sub> = W<sub>ext</sub><br>\nRearrange: ΔU<sub>s</sub> = W<sub>ext</sub> - ΔK - ΔU<sub>g</sub><br>\nSubstitute: ΔU<sub>s</sub> = -0.0770 - 0.0232 - 0.0383<br>\nAnswer: ΔU<sub>s</sub> = <b>-0.138 J</b>.", "ledgers": [{"label": "Energy account", "dk": "+0.0232 J", "dug": "+0.0383 J", "dus": "-0.138 J", "wext": "-0.0770 J", "demech": "-0.0770 J", "note": "Spring energy decreases."}]}, {"title": "O. Pinball: ball only", "question": "Same pinball situation, but system = <b>ball only</b>.", "hint": "The ball has no potential-energy terms. Spring, gravity and friction are all external interactions.", "solution": "Equation: ΔK = W<sub>ext</sub><br>\nFrom N: ΔK = <b>+0.0232 J</b>, so W<sub>ext</sub> = <b>+0.0232 J</b> net.<br><br>\nIndividual contributions:<br>\nspring work = +0.138 J;<br>\ngravity work = -0.0383 J;<br>\nfriction work = -0.0770 J.<br>\nCheck: 0.138 - 0.0383 - 0.0770 = 0.0227 J (difference from 0.0232 J is rounding).", "ledgers": [{"label": "Energy account", "dk": "+0.0232 J", "dug": "0", "dus": "0", "wext": "+0.0232 J", "demech": "+0.0232 J", "note": "Net of spring, gravity and friction."}]}, {"title": "Track problem 1 — identify the transfers", "question": "For the track problem on pages 3-4 of 08a, the system is <b>spring + ball + Earth</b>. A 120 g ball drops 2.5 m, receives a 2.2 N blower force over 1.2 m, then experiences 2.6 N friction over 1.4 m before compressing the spring. Identify the energy transfers P1 → P6.", "hint": "Track the ball's mechanical energy stage by stage. The horizontal smooth section does not change it. The blower adds energy; friction removes mechanical energy; the spring stores the remaining kinetic energy.", "solution": "P1 → P2: gravitational potential energy decreases and kinetic energy increases.<br>\nP2 → P3: smooth horizontal motion; K remains constant.<br>\nP3 → P4: the blower does positive external work, increasing K.<br>\nP4 → P5: friction does negative work, decreasing mechanical energy.<br>\nP5 → P6: K decreases to zero while U<sub>s</sub> increases.", "ledgers": []}, {"title": "Track problem 2 — energy account P1 to P6", "question": "Write the energy equation from P1 to P6 and determine each term.", "hint": "The ball starts and ends at rest. Choose the final height as the zero of gravitational potential energy. Find blower work and friction work separately.", "solution": "<b>Gravitational change</b><br>\nEquation: ΔU<sub>g</sub> = mgΔy<br>\nSubstitute: ΔU<sub>g</sub> = (0.120)(10)(-2.5)<br>\nAnswer: ΔU<sub>g</sub> = <b>-3.00 J</b>.<br><br>\n<b>Blower work</b><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W = (2.2)(1.2)cos0°<br>\nAnswer: W<sub>blower</sub> = <b>+2.64 J</b>.<br><br>\n<b>Friction work</b><br>\nEquation: W = Fd cosθ<br>\nSubstitute: W = (2.6)(1.4)cos180°<br>\nAnswer: W<sub>friction</sub> = <b>-3.64 J</b>.<br><br>\nTherefore W<sub>ext</sub> = 2.64 - 3.64 = <b>-1.00 J</b>.<br><br>\nEquation: ΔK + ΔU<sub>g</sub> + ΔU<sub>s</sub> = W<sub>ext</sub><br>\nSubstitute: 0 - 3.00 + ΔU<sub>s</sub> = -1.00<br>\nRearrange: ΔU<sub>s</sub> = -1.00 + 3.00<br>\nAnswer: ΔU<sub>s</sub> = <b>+2.00 J</b>.", "ledgers": [{"label": "P1 → P6", "dk": "0", "dug": "-3.00 J", "dus": "+2.00 J", "wext": "-1.00 J", "demech": "-1.00 J", "note": "Ball starts and ends at rest."}]}, {"title": "Track problem 3 — launch speed after decompression", "question": "Assuming no transfer to internal energy as the spring decompresses, calculate the ball's launch speed.", "hint": "The 2.00 J stored in the spring becomes kinetic energy of the 0.120 kg ball.", "solution": "Equation: ΔK + ΔU<sub>s</sub> = 0<br>\nSubstitute: K<sub>f</sub> - 2.00 = 0<br>\nAnswer: K<sub>f</sub> = <b>2.00 J</b>.<br><br>\nEquation: K = ½mv²<br>\nRearrange: v = √(2K/m)<br>\nSubstitute: v = √[2(2.00)/0.120]<br>\nAnswer: v = <b>5.77 m s<sup>-1</sup></b>.", "ledgers": []}, {"title": "Track problem 4 — spring constant", "question": "At maximum compression the spring is shortened by 2.5 cm. Determine its stiffness constant.", "hint": "Convert 2.5 cm to metres and use the 2.00 J spring energy found in the previous question.", "solution": "Equation: U<sub>s</sub> = ½k(Δx)²<br>\nRearrange: k = 2U<sub>s</sub>/(Δx)²<br>\nSubstitute: k = 2(2.00)/(0.025)²<br>\nAnswer: k = <b>6.40 × 10<sup>3</sup> N m<sup>-1</sup></b>.", "ledgers": []}, {"title": "Track problem 5 — sign of work", "question": "Considering the work done <b>on the ball</b>, state whether each is positive, negative or zero: (a) gravity during A, (b) slope/normal force during B, (c) blower force during D, (d) surface friction during E.", "hint": "Compare each force direction with the ball's displacement. Remember: if the Earth is included in the system, gravity is not counted as external work in the system ledger, even though gravity does physical work on the ball.", "solution": "(a) Gravity during A: <b>positive</b> work on the falling ball.<br>\n(b) Normal force during B: <b>zero</b> work because it is perpendicular to the displacement.<br>\n(c) Blower force during D: <b>positive</b> work.<br>\n(d) Friction during E: <b>negative</b> work.", "ledgers": []}], "quiz": [{"title": "Quick check 1 — system boundary", "question": "A block falls while the system is <b>block + Earth</b>. Should gravity appear as external work or as a gravitational potential-energy change?", "hint": "Ask whether both interacting objects are inside the boundary.", "solution": "Use <b>ΔU<sub>g</sub></b>. Gravity is an internal interaction when both the block and Earth are in the system. Do not also include W<sub>gravity</sub>."}, {"title": "Quick check 2 — no double counting", "question": "A block is pushed by a spring. The system is <b>block + spring</b>. Which is correct: include both W<sub>spring</sub> and ΔU<sub>s</sub>, or use only one?", "hint": "One interaction gets one energy account.", "solution": "Use <b>ΔU<sub>s</sub></b> and do not also include spring work as external work."}, {"title": "Quick check 3 — friction sign", "question": "Can kinetic friction do <b>positive work</b> on an object?", "hint": "Work depends on the direction of the friction force relative to that object's displacement.", "solution": "<b>Yes.</b> A moving conveyor belt can exert kinetic friction in the same direction as a block's displacement, so friction can do positive work on the block."}, {"title": "Quick check 4 — work versus dissipation", "question": "Why is the work done by friction on one object not generally equal to the internal energy generated at a sliding contact?", "hint": "The two quantities use different distances.", "solution": "Work on an object uses that <b>object's displacement</b>. Sliding dissipation depends on the <b>relative displacement of the two surfaces</b>."}, {"title": "Quick check 5 — mechanical energy", "question": "A selected system has ΔK = +6 J, ΔU<sub>g</sub> = -10 J, and ΔU<sub>s</sub> = +1 J. Determine ΔE<sub>mech</sub>.", "hint": "Add the changes in kinetic and potential energies.", "solution": "Equation: ΔE<sub>mech</sub> = ΔK + ΔU<sub>g</sub> + ΔU<sub>s</sub><br>Substitute: ΔE<sub>mech</sub> = 6 - 10 + 1<br>Answer: <b>-3 J</b>."}, {"title": "Quick check 6 — object theorem", "question": "For a single object, what does the AP work-energy theorem state?", "hint": "Think net work and kinetic energy.", "solution": "The change in the object's kinetic energy equals the sum of the work done by all forces on it: <b>ΔK = ΣW<sub>i</sub></b>."}]};
+let mode='main', pos=0;
+
+function currentList(){ return DATA[mode]; }
+function setMode(m){
+  mode=m; pos=0;
+  document.querySelectorAll('.modebar button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(m+'Btn').classList.add('active');
+  render();
+}
+function move(d){
+  const L=currentList();
+  pos=Math.max(0,Math.min(L.length-1,pos+d));
+  render();
+  window.scrollTo({top:document.querySelector('.card').offsetTop-14,behavior:'smooth'});
+}
+function toggle(id){ document.getElementById(id).classList.toggle('show'); }
+function blankLedger(label){
+  return `<div class="system-label">${label||'Energy account'}</div>
+  <div class="ledger">
+    <div>
+      <div class="leftenergy">
+        <div class="box"><strong>ΔK</strong><div class="value">?</div></div>
+        <div class="box"><strong>ΔU<sub>g</sub></strong><div class="value">?</div></div>
+        <div class="box"><strong>ΔU<sub>s</sub></strong><div class="value">?</div></div>
+      </div>
+      <div class="box mech"><strong>ΔE<sub>mech</sub></strong><div class="value">?</div></div>
+    </div>
+    <div class="box wbox"><strong>W<sub>ext</sub></strong><div class="value">?</div></div>
+  </div>`;
+}
+function filledLedger(x){
+  return `<div class="system-label">${x.label||'Energy account'}</div>
+  <div class="ledger">
+    <div>
+      <div class="leftenergy">
+        <div class="box"><strong>ΔK</strong><div class="value">${x.dk}</div></div>
+        <div class="box"><strong>ΔU<sub>g</sub></strong><div class="value">${x.dug}</div></div>
+        <div class="box"><strong>ΔU<sub>s</sub></strong><div class="value">${x.dus}</div></div>
+      </div>
+      <div class="box mech"><strong>ΔE<sub>mech</sub></strong><div class="value">${x.demech}</div></div>
+    </div>
+    <div class="box wbox"><strong>W<sub>ext</sub></strong><div class="value">${x.wext}</div><div class="notice">${x.note||''}</div></div>
+  </div>`;
+}
+function render(){
+  const L=currentList(), q=L[pos];
+  document.getElementById('title').innerHTML=q.title;
+  document.getElementById('counter').textContent=`Question ${pos+1} of ${L.length}`;
+  document.getElementById('question').innerHTML=q.question;
+  const la=document.getElementById('ledgerArea');
+  la.innerHTML='';
+  if(q.ledgers && q.ledgers.length){
+    la.innerHTML='<div class="ledger-title">Complete this before revealing the solution</div>'+q.ledgers.map(x=>blankLedger(x.label)).join('');
+  }
+  document.getElementById('hintBox').innerHTML='<b>Hint</b><br>'+q.hint;
+  let ledgers='';
+  if(q.ledgers && q.ledgers.length) ledgers='<div class="ledger-title">Completed energy account</div>'+q.ledgers.map(filledLedger).join('');
+  document.getElementById('solutionBox').innerHTML='<b>Worked solution</b><br>'+q.solution+ledgers;
+  document.getElementById('hintBox').classList.remove('show');
+  document.getElementById('solutionBox').classList.remove('show');
+  document.getElementById('prev').disabled=pos===0;
+  document.getElementById('next').disabled=pos===L.length-1;
+  document.getElementById('bar').style.width=((pos+1)/L.length*100)+'%';
+}
+render();
+</script>
+</body>
+</html>
