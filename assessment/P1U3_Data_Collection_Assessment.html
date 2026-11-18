@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AP Physics 1 Unit 3 | Data Collection Assessment</title>
+<style>
+:root{--ink:#15334b;--muted:#5e778b;--navy:#194866;--blue:#1f7296;--aqua:#00a6ac;--pale:#eaf7fb;--line:#cbe0e9;--bg:#eff7fa;--card:#ffffff;--orange:#f18c3c;--orange-dark:#b75b1e;--green:#0d806e}
+*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(130deg,#f4fafd,#e8f2f6);color:var(--ink)}
+button,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.47}button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #6dcced;outline-offset:2px}
+.shell{max-width:1600px;margin:auto;min-height:100vh;padding:12px 18px 10px;display:flex;flex-direction:column;gap:11px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 4px}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}.brand-mark{width:38px;height:38px;border-radius:11px;background:var(--navy);color:white;font-size:21px;display:grid;place-items:center;box-shadow:0 3px 9px #16476622}.eyebrow{font-size:10px;font-weight:850;letter-spacing:.13em;text-transform:uppercase;color:#37728c;margin-bottom:3px}.heading h1{font-size:clamp(16px,1.52vw,22px);margin:0;line-height:1.27;letter-spacing:-.025em;font-weight:760}.topnote{font-size:12px;color:var(--muted);text-align:right;white-space:nowrap}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(415px,455px);gap:14px;flex:1;min-height:0}.panel{background:var(--card);border:1px solid #d4e6ec;box-shadow:0 5px 22px #1948660c;border-radius:17px;overflow:hidden}.sim-panel{display:flex;flex-direction:column;min-width:0}.panel-title{padding:15px 18px 9px;display:flex;justify-content:space-between;gap:10px;align-items:center}.smallcap{color:#3e7189;font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.pill{border:1px solid #d8e8ed;color:#3d7188;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:670;background:#f4fafc;white-space:nowrap}
+.track-holder{position:relative;min-height:280px;flex:1;margin:0 13px 6px;background:linear-gradient(#f5fcff,#e8f6fc 69%,#f7fcff);border:1px solid #d9ecf4;border-radius:13px;overflow:hidden}#trackCanvas{display:block;width:100%;height:100%;min-height:300px}.on-canvas{position:absolute;left:16px;top:15px;background:#ffffffee;border:1px solid #d7ebf1;border-radius:11px;padding:9px 12px;box-shadow:0 3px 9px #294f6612;max-width:175px}.on-canvas .oc-label{font-size:10px;letter-spacing:.055em;font-weight:800;text-transform:uppercase;color:#6c899a}.on-canvas .oc-value{font-weight:830;font-size:24px;color:#14546c;line-height:1.2;letter-spacing:-.02em;white-space:nowrap}.on-canvas .oc-unit{font-size:12px;font-weight:650}.on-canvas .oc-status{font-size:11px;color:#5f879a;min-height:14px;margin-top:3px}
+.sim-bottom{padding:6px 17px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:7px}.mini{background:#f4fafc;border:1px solid #deedf3;border-radius:9px;padding:8px 10px;color:#55788b;font-size:11px;flex:1;min-width:125px}.mini strong{font-size:13px;color:#163f58}.mini b{color:#173f57}.model{margin:0 17px 16px;border-top:1px solid #e2edf2;font-size:12px;color:#456b7c;padding-top:10px}.model summary{cursor:pointer;font-weight:750;color:#255f7c;list-style-position:outside}.model p{margin:8px 0 0;line-height:1.55}.model code{background:#edf5f7;padding:1px 4px;border-radius:3px;font:inherit;color:#194d67}
+.sidebar{display:flex;flex-direction:column;gap:14px;min-height:0}.controls{padding:16px 17px 14px}.controls-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;gap:8px}.controls h2,.data h2{font-size:15px;margin:0;letter-spacing:-.018em}.countchip{color:var(--green);background:#e5f7f1;font-size:12px;font-weight:780;border-radius:25px;padding:6px 10px;white-space:nowrap}.field-name{font-size:12px;color:#536d7d;font-weight:700;margin:8px 0}.angles{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}.angle-btn{border:1px solid #d3e5ec;background:#f5fafc;border-radius:9px;padding:10px 0;font-size:14px;font-weight:790;color:#426a7d;transition:background .12s,border-color .12s}.angle-btn:hover:not(:disabled){border-color:#56b0cf;background:#eaf7fb}.angle-btn.selected{background:#165e82;border-color:#165e82;color:white;box-shadow:0 3px 9px #2772962d}.angle-btn.selected:hover:not(:disabled){background:#165e82;border-color:#165e82}.act-row{display:flex;gap:8px;margin-top:14px}.run-btn{border:0;background:linear-gradient(105deg,#007b90,#0a6597);color:white;font-weight:760;border-radius:10px;padding:13px 17px;flex:1;box-shadow:0 3px 8px #126a8830}.run-btn:hover:not(:disabled){filter:brightness(1.08)}.quiet-btn{border:1px solid #cfe3eb;color:#426b7f;background:#fff;border-radius:10px;padding:12px 11px;font-weight:680;font-size:12px}.quiet-btn:hover:not(:disabled){background:#f4fafc}.status-line{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px;color:#547286;font-size:12px}.status{display:flex;align-items:center;gap:7px;min-width:0}.light{width:8px;height:8px;border-radius:50%;background:#92afbd;flex-shrink:0}.light.running{background:#f3ad47;box-shadow:0 0 0 4px #f3ad472c}.light.done{background:#14a88a;box-shadow:0 0 0 4px #14a88a22}.playback{color:#496c80;font-size:11px}.playback select{border:1px solid #d2e6ee;background:#f7fbfd;color:#24536c;font-size:11px;border-radius:6px;padding:3px 5px}
+.data{display:flex;flex-direction:column;min-height:0;padding:14px 14px 13px;flex:1}.data-title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 3px 11px}.data-sub{font-size:11px;color:#6c8798;margin-top:3px}.table-scroller{overflow:auto;max-width:100%}table{border-collapse:separate;border-spacing:0;width:100%;font-variant-numeric:tabular-nums;table-layout:fixed;text-align:center;font-size:12px;white-space:nowrap}thead th{font-weight:780;font-size:10.5px;color:#527589;background:#f1f8fb;border-top:1px solid #d8eaf0;border-bottom:1px solid #d8eaf0;padding:10px 3px}thead th:first-child{border-left:1px solid #d8eaf0;border-top-left-radius:9px;width:49px}thead th:last-child{border-right:1px solid #d8eaf0;border-top-right-radius:9px;width:65px}tbody td{border-bottom:1px solid #e3eff3;padding:12px 3px;color:#3b6174;font-size:11.5px}tbody td:first-child{font-weight:780;color:#2d6681}tbody td:last-child{font-weight:830;color:#086f85;background:#f1f9fa}tbody tr.active td{background:#eaf6fa}tbody tr.active td:first-child{color:#0d607e}tbody tr.active td:last-child{background:#d6f1f2;color:#035e73}tbody tr:last-child td:first-child{border-bottom-left-radius:8px}tbody tr:last-child td:last-child{border-bottom-right-radius:8px}tbody td.empty{color:#a9bcc5}.table-foot{margin-top:auto;display:flex;gap:6px;justify-content:space-between;align-items:center;padding:12px 3px 0}.btn-link{border:1px solid #d1e4eb;background:white;border-radius:8px;padding:9px 11px;color:#326b83;font-size:11px;font-weight:750}.btn-link:hover{background:#eef8fb}.table-note{font-size:11px;color:#7590a1}.assumptions{font-size:11px;color:#658496;line-height:1.5;margin:0 3px 9px}.angle-label{font-size:11px;color:#6a8494}.footbar{text-align:center;font-size:11px;color:#6c8898;margin-top:-5px}
+@media(min-width:1051px) and (min-height:790px){.track-holder{min-height:390px}}@media(min-width:1051px) and (max-height:780px){.shell{padding:10px 13px;gap:9px}.topbar{min-height:44px}.panel-title{padding:11px 14px 7px}.sim-bottom{padding:4px 14px 8px}.model{margin:0 14px 10px}.track-holder{min-height:250px}.controls{padding:12px 14px}.controls-head{margin-bottom:8px}.angles{gap:5px}.angle-btn{padding:8px 0}.act-row{margin-top:9px}.run-btn,.quiet-btn{padding-top:10px;padding-bottom:10px}.status-line{margin-top:7px}.data{padding:10px 12px}.data-title{margin-bottom:7px}tbody td{padding:8px 3px}thead th{padding:8px 3px}.table-foot{padding-top:7px}.assumptions{margin-bottom:5px}}
+@media(max-width:1050px){.workspace{grid-template-columns:1fr}.track-holder{height:420px;flex:initial}.sidebar{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}.sim-panel{min-height:0}.model{margin-top:5px}}
+@media(max-width:730px){.shell{padding:10px;gap:10px}.topbar{align-items:flex-start}.brand{display:none}.heading h1{font-size:17px}.topnote{font-size:10px}.sidebar{grid-template-columns:1fr}.track-holder{height:340px;min-height:340px;margin:0 8px 6px}#trackCanvas{min-height:340px}.on-canvas{padding:6px 8px;left:10px;top:9px}.on-canvas .oc-value{font-size:20px}.mini{min-width:115px}.footbar{margin:2px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+/* --- Data Collection Assessment: desktop one-screen layout --- */
+.assessment-label{min-width:175px;display:flex;flex-direction:column;line-height:1.05}
+.assessment-label span{font-size:9px;font-weight:850;letter-spacing:.12em;color:#37728c}
+.assessment-label strong{font-size:13px;color:#153f59;margin-top:3px}
+@media(min-width:1051px){
+  html,body{height:100%;overflow:hidden}
+  .shell{height:100dvh;min-height:0;padding:7px 11px 7px;gap:6px;overflow:hidden}
+  .topbar{flex:0 0 42px;min-height:42px;padding:0 2px;gap:11px}
+  .heading{flex:1;min-width:0}
+  .heading h1{font-size:15.5px;line-height:1.13;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topnote{font-size:9.5px;line-height:1.25}
+  .workspace{grid-template-columns:minmax(0,1fr) minmax(395px,430px);gap:9px;flex:1;min-height:0;overflow:hidden}
+  .panel{min-height:0}
+  .sim-panel{height:100%;min-height:0;position:relative}
+  .panel-title{padding:7px 11px 4px}
+  .smallcap{font-size:9.5px}.pill{padding:4px 8px;font-size:9.5px}
+  .track-holder{min-height:0!important;height:auto!important;flex:1;margin:0 8px 4px}
+  #trackCanvas{min-height:0!important;height:100%!important}
+  .on-canvas{left:10px;top:9px;padding:6px 8px;max-width:150px}
+  .on-canvas .oc-label{font-size:8.5px}.on-canvas .oc-value{font-size:19px}.on-canvas .oc-unit{font-size:10px}.on-canvas .oc-status{font-size:9px;min-height:11px}
+  .sim-bottom{padding:3px 10px 5px;gap:5px}
+  .mini{padding:5px 7px;font-size:9.4px;min-width:100px;border-radius:7px}
+  .mini strong{font-size:11.2px}
+  .model{margin:0 10px 6px;padding-top:4px;font-size:9.5px;line-height:1.25;position:relative;z-index:6}
+  .model summary{font-size:9.5px}
+  .model p{display:none}
+  .model[open]{position:absolute;left:10px;right:10px;bottom:7px;margin:0;padding:9px 11px 10px;background:#fff;border:1px solid #cfe3eb;border-radius:11px;box-shadow:0 10px 30px #173f5733;max-height:48%;overflow:auto}
+  .model[open] p{display:block;margin:6px 0;font-size:10px;line-height:1.38}
+  .sidebar{height:100%;min-height:0;gap:7px;overflow:hidden}
+  .controls{padding:8px 10px 7px;flex:0 0 auto}
+  .controls-head{margin-bottom:5px}.controls h2,.data h2{font-size:13px}.countchip{font-size:10px;padding:4px 8px}
+  .field-name{font-size:10px;margin:4px 0}.angles{gap:4px}.angle-btn{padding:6px 0;font-size:12px;border-radius:7px}
+  .act-row{gap:5px;margin-top:7px}.run-btn{padding:8px 10px;border-radius:8px}.quiet-btn{padding:7px 8px;font-size:10px;border-radius:8px}
+  .status-line{margin-top:5px;font-size:10px}.playback{font-size:9.5px}.playback select{font-size:9px;padding:2px 4px}
+  .data{padding:7px 9px 7px;min-height:0;overflow:hidden}
+  .data-title{margin:0 2px 4px}.data-sub,.angle-label{font-size:9px}
+  .table-scroller{overflow:hidden;flex:0 0 auto}
+  table{font-size:10px}
+  thead th{font-size:8.8px;padding:4px 2px}
+  tbody td{font-size:9.8px;padding:5px 2px}
+  .table-foot{padding:5px 2px 0;gap:5px}.btn-link{padding:6px 8px;font-size:9.5px;border-radius:7px}
+  .data>div:last-child{margin-top:5px!important;padding-top:5px!important}
+  .assumptions{font-size:8.8px;line-height:1.25;margin:0 2px 3px}
+}
+@media(min-width:1051px) and (max-height:760px){
+  .shell{padding-top:5px;padding-bottom:5px}
+  .topbar{flex-basis:36px;min-height:36px}
+  .assessment-label strong{font-size:12px}.assessment-label span{font-size:8px}
+  .heading h1{font-size:14px}.topnote{display:none}
+  .panel-title{padding-top:5px}
+  .sim-bottom{padding-bottom:3px}
+  .model{margin-bottom:4px}
+  .controls{padding-top:6px;padding-bottom:5px}
+  .angle-btn{padding:5px 0}
+  .act-row{margin-top:5px}
+  .run-btn,.quiet-btn{padding-top:6px;padding-bottom:6px}
+  .status-line{margin-top:4px}
+  .data{padding-top:5px}
+  thead th{padding:3px 2px}
+  tbody td{padding:4px 2px}
+  .data>div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+}
+@media(max-width:1050px){
+  html,body{height:auto;overflow:auto}
+  .shell{height:auto;min-height:100vh}
+  .assessment-label{display:none}
+}
+
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <div class="assessment-label"><span>AP PHYSICS 1 · UNIT 3</span><strong>Data Collection Assessment</strong></div>
+  <div class="heading"><h1>How does incline angle affect the cart's speed at the bottom?</h1></div>
+  <div class="topnote">Starts from rest · release distance 35 cm<br><strong>5°–30° · 5 repeats per angle</strong></div>
+</header>
+<main class="workspace">
+<section class="panel sim-panel" aria-label="Cart and track simulation">
+  <div class="panel-title"><span class="smallcap">Cart and track</span><span class="pill">Ideal track · starts from rest</span></div>
+  <div class="track-holder" id="trackHolder">
+    <canvas id="trackCanvas" role="img" aria-label="Cart released 35 centimetres up a variable-angle incline, followed by a short curved transition, 20-centimetre horizontal section, catcher and speed sensor"></canvas>
+    <div class="on-canvas" aria-live="polite"><div class="oc-label">Motion sensor reading</div><div class="oc-value"><span id="readout">—</span> <span class="oc-unit">m/s</span></div><div class="oc-status" id="readoutStatus">Waiting for a trial</div></div>
+  </div>
+  <div class="sim-bottom"><div class="mini"><span>Release position</span><br><strong>35 cm</strong> along ramp</div><div class="mini"><span>Horizontal distance</span><br><strong>20 cm</strong> to sensor</div><div class="mini"><span>Selected angle</span><br><strong id="angleKpi">5°</strong></div></div>
+  <details class="model" id="modelDetails"><summary>Physics model and assumptions (reveal after investigating)</summary><p>The cart is released from rest and the track is frictionless. The release point is a distance <strong>d = 0.35 m</strong> up the inclined line (from the point where it would meet the horizontal). The short, smoothly joined curve replaces the final section of that incline, so it adds no extra vertical drop. Thus <strong>Δh = (0.35 m) sin θ</strong> and conservation of energy gives <strong>v = √(2g · 0.35 sin θ)</strong>, using <strong>g = 9.81 m/s²</strong>. The velocity is unchanged along the horizontal section. Each displayed reading is this ideal speed multiplied by an independently randomized factor between 0.95 and 1.05.</p><p><strong>Prediction:</strong> Plotting <code>v²</code> against <code>sin θ</code> should produce a straight line through the origin, with gradient <code>2gd = 6.87 m²/s²</code>, approximately.</p></details>
+</section>
+<aside class="sidebar" aria-label="Experiment controls and recorded results">
+  <section class="panel controls"><div class="controls-head"><h2>Experiment controls</h2><span class="countchip" id="countChip">0 / 5 trials</span></div><div class="field-name">Angle of inclination</div>
+  <div class="angles" id="angleControls" role="group" aria-label="Select the incline angle"><button class="angle-btn selected" data-angle="5" aria-pressed="true">5°</button><button class="angle-btn" data-angle="10" aria-pressed="false">10°</button><button class="angle-btn" data-angle="15" aria-pressed="false">15°</button><button class="angle-btn" data-angle="20" aria-pressed="false">20°</button><button class="angle-btn" data-angle="25" aria-pressed="false">25°</button><button class="angle-btn" data-angle="30" aria-pressed="false">30°</button></div>
+  <div class="act-row"><button class="run-btn" id="runButton">▶ &nbsp; Release cart</button><button class="quiet-btn" id="resetAngleButton" title="Remove readings for the selected angle">Reset angle</button></div>
+  <div class="status-line"><div class="status"><span class="light" id="statusLight"></span><span id="statusText" role="status">Ready for trial 1</span></div><label class="playback">Playback <select id="playbackSpeed" aria-label="Animation speed"><option value="0.45">Slow</option><option value="0.75">Medium</option><option value="1">Real-time</option></select></label></div>
+  </section>
+  <section class="panel data"><div class="data-title"><div><h2>Results table</h2><div class="data-sub">Sensor speed · m/s</div></div><span class="angle-label">Live mean</span></div>
+  <div class="table-scroller"><table aria-label="Speed measurements by angle"><thead><tr><th>θ</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>Mean</th></tr></thead><tbody id="resultsBody"></tbody></table></div>
+  <div class="table-foot"><button class="btn-link" id="downloadButton">↓ Download CSV</button><button class="btn-link" id="resetAllButton">Clear all data</button></div>
+  <div style="margin-top:12px;border-top:1px solid #e4eff4;padding-top:9px"><p class="assumptions"><strong>Measurement variation:</strong> each reading is independently randomized within ±5% of the ideal speed. Values are rounded to 0.001 m/s.</p><p class="assumptions">The catcher stops the cart <strong>just before</strong> it reaches the motion sensor. Measurements are retained when you change angle.</p></div>
+  </section>
+</aside>
+</main>
+</div>
+<script>
+(()=>{'use strict';
+const ANGLES=[5,10,15,20,25,30], G=9.81, D=.35, S_CURVE=.055, END_CURVE=.020, SENSOR_X=.220, STOP_X=.181;
+const $=id=>document.getElementById(id);
+const canvas=$('trackCanvas'), ctx=canvas.getContext('2d');
+const runBtn=$('runButton'),resetAngleBtn=$('resetAngleButton'),resetAllBtn=$('resetAllButton'),angleControl=$('angleControls');
+const readout=$('readout'),readoutStatus=$('readoutStatus'),statusText=$('statusText'),statusLight=$('statusLight'),countChip=$('countChip'),resultsBody=$('resultsBody');
+let angle=5, phase='ready', animationStart=null, animationId=0, animationPath=[], trialSpeed=null, pose=null, catchTime=0, animationDuration=0;
+let playback=0.45;
+const storageKey='p1u3-slope-simulation-v1';
+let data=Object.fromEntries(ANGLES.map(a=>[a,[]]));
+try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved && typeof saved==='object')for(const a of ANGLES){if(Array.isArray(saved[a]))data[a]=saved[a].filter(v=>typeof v==='number'&&isFinite(v)&&v>=0&&v<10).slice(0,5);}}catch(e){}
+const fmt=n=>n.toFixed(3);
+const rad=()=>angle*Math.PI/180;
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+function save(){try{localStorage.setItem(storageKey,JSON.stringify(data));}catch(e){}}
+function speedIdeal(){return Math.sqrt(2*G*D*Math.sin(rad()));}
+function mean(a){const arr=data[a];return arr.length?arr.reduce((s,v)=>s+v,0)/arr.length:null;}
+function setPhase(p){phase=p;let n=data[angle].length;countChip.textContent=n+' / 5 trials';let full=n>=5;
+  runBtn.disabled=p==='running'||full;runBtn.innerHTML=p==='running'?'◌ &nbsp; Cart moving…':full?'✓ &nbsp; 5 repeats complete':'▶ &nbsp; '+(n?'Run next repeat':'Release cart');
+  resetAngleBtn.disabled=p==='running'||n===0; resetAllBtn.disabled=p==='running';
+  angleControl.querySelectorAll('button').forEach(b=>{const active=+b.dataset.angle===angle;b.disabled=p==='running';b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
+  statusLight.className='light '+(p==='running'?'running':p==='caught'?'done':'');
+  statusText.textContent=p==='running'?`Trial ${n+1}: cart in motion`:p==='caught'?(full?'5 readings collected':`Trial ${n} recorded`):full?'Select another angle or reset':`Ready for trial ${n+1}`;
+  if(p!=='running'){$('angleKpi').textContent=angle+'°';}
+}
+function refreshReadout(){const arr=data[angle];if(phase==='running'){readout.textContent='…';readoutStatus.textContent='Recording';return;}if(arr.length){readout.textContent=fmt(arr[arr.length-1]);readoutStatus.textContent=`Latest reading · ${angle}°`; }else{readout.textContent='—';readoutStatus.textContent='Waiting for a trial';}}
+function refreshTable(){resultsBody.innerHTML='';for(const a of ANGLES){const tr=document.createElement('tr');if(a===angle)tr.className='active';const arr=data[a];let html=`<td>${a}°</td>`;for(let j=0;j<5;j++)html+=`<td class="${j<arr.length?'':'empty'}">${j<arr.length?fmt(arr[j]):'—'}</td>`;html+=`<td>${arr.length?fmt(mean(a)):'—'}</td>`;tr.innerHTML=html;tr.title=`${a} degrees: ${arr.length} of 5 repeats`;tr.addEventListener('click',()=>{if(phase==='running'||angle===a)return;chooseAngle(a);});tr.style.cursor='pointer';resultsBody.appendChild(tr);}}
+function chooseAngle(a){if(phase==='running'||!ANGLES.includes(a))return;angle=a;pose=null;trialSpeed=null;setPhase('ready');refreshReadout();refreshTable();draw();}
+angleControl.addEventListener('click',e=>{const btn=e.target.closest('[data-angle]');if(btn)chooseAngle(+btn.dataset.angle);});
+function cubic(A,B,C,D,t){let q=1-t;return q*q*q*A+3*q*q*t*B+3*q*t*t*C+t*t*t*D;}
+function cubicDerivative(A,B,C,D,t){let q=1-t;return 3*q*q*(B-A)+6*q*t*(C-B)+3*t*t*(D-C);}
+function curvePoints(){let a=rad(),co=Math.cos(a),si=Math.sin(a);return {p0:{x:-S_CURVE*co,y:S_CURVE*si},p1:{x:-(S_CURVE-.020)*co,y:(S_CURVE-.020)*si},p2:{x:END_CURVE-.018,y:0},p3:{x:END_CURVE,y:0}};}
+function curvePoint(t){const c=curvePoints();let x=cubic(c.p0.x,c.p1.x,c.p2.x,c.p3.x,t),y=cubic(c.p0.y,c.p1.y,c.p2.y,c.p3.y,t);let dx=cubicDerivative(c.p0.x,c.p1.x,c.p2.x,c.p3.x,t),dy=cubicDerivative(c.p0.y,c.p1.y,c.p2.y,c.p3.y,t);return {x,y,alpha:Math.atan2(-dy,dx)};}
+function trajectory(){const a=rad(),si=Math.sin(a),co=Math.cos(a),h=D*si;let pts=[];function push(x,y,alpha){const v=Math.sqrt(Math.max(0,2*G*(h-y)));const prev=pts[pts.length-1];let t=0;if(prev){const ds=Math.hypot(x-prev.x,y-prev.y);t=prev.t+2*ds/Math.max(.000001,v+prev.v);}pts.push({x,y,alpha,v,t});}
+  for(let i=0;i<=130;i++){const s=D-(D-S_CURVE)*i/130;push(-s*co,s*si,a);}
+  for(let i=1;i<=62;i++){const p=curvePoint(i/62);push(p.x,p.y,p.alpha);}
+  for(let i=1;i<=72;i++){let x=END_CURVE+(STOP_X-END_CURVE)*i/72;push(x,0,0);}
+  return pts;}
+function getPose(t){const arr=animationPath;if(!arr.length)return null;if(t<=0)return arr[0];if(t>=arr[arr.length-1].t)return arr[arr.length-1];let lo=0,hi=arr.length-1;while(lo+1<hi){const m=(lo+hi)>>1;if(arr[m].t<t)lo=m;else hi=m;}const p=arr[lo],q=arr[hi],k=(t-p.t)/(q.t-p.t);return {x:p.x+(q.x-p.x)*k,y:p.y+(q.y-p.y)*k,alpha:p.alpha+(q.alpha-p.alpha)*k,v:p.v+(q.v-p.v)*k,t};}
+function startTrial(){if(phase==='running'||data[angle].length>=5)return;animationPath=trajectory();animationDuration=animationPath[animationPath.length-1].t;trialSpeed=speedIdeal()*(.95+.10*Math.random());pose=animationPath[0];animationStart=null;setPhase('running');refreshReadout();draw();cancelAnimationFrame(animationId);animationId=requestAnimationFrame(frame);}
+function frame(timestamp){if(phase!=='running')return;if(animationStart===null)animationStart=timestamp;const t=(timestamp-animationStart)/1000*playback;pose=getPose(t);draw();if(t>=animationDuration){finishTrial(timestamp);}else{animationId=requestAnimationFrame(frame);}}
+function finishTrial(timestamp){if(phase!=='running')return;const measured=Number(trialSpeed.toFixed(3));data[angle].push(measured);save();phase='caught';pose=animationPath[animationPath.length-1];catchTime=timestamp;setPhase('caught');refreshTable();refreshReadout();draw();animationId=requestAnimationFrame(catchFrame);}
+function catchFrame(timestamp){if(phase!=='caught')return;draw();if(timestamp-catchTime<950)animationId=requestAnimationFrame(catchFrame);else{phase='ready';setPhase('ready');draw();}}
+runBtn.addEventListener('click',startTrial);
+resetAngleBtn.addEventListener('click',()=>{if(phase==='running'||!data[angle].length)return;data[angle]=[];save();chooseAngle(angle);});
+resetAllBtn.addEventListener('click',()=>{if(phase==='running')return;if(ANGLES.every(a=>!data[a].length))return;if(!confirm('Clear all recorded readings for all six angles?'))return;data=Object.fromEntries(ANGLES.map(a=>[a,[]]));save();chooseAngle(angle);});
+$('downloadButton').addEventListener('click',()=>{let lines=['Angle (deg),Trial 1 (m/s),Trial 2 (m/s),Trial 3 (m/s),Trial 4 (m/s),Trial 5 (m/s),Mean (m/s),sin(angle),Mean speed squared (m2/s2)'];for(const a of ANGLES){const v=data[a],m=mean(a);lines.push([a,...Array.from({length:5},(_,i)=>i<v.length?fmt(v[i]):''),m===null?'':fmt(m),Math.sin(a*Math.PI/180).toFixed(6),m===null?'':(m*m).toFixed(6)].join(','));}let blob=new Blob([lines.join('\r\n')+'\r\n'],{type:'text/csv;charset=utf-8'});let url=URL.createObjectURL(blob);let link=document.createElement('a');link.href=url;link.download='P1U3_slope_results.csv';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+$('playbackSpeed').addEventListener('change',e=>playback=+e.target.value);
+function roundRect(x,y,w,h,r,fill,stroke){ctx.beginPath();ctx.roundRect(x,y,w,h,r);if(fill){ctx.fillStyle=fill;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.stroke();}}
+function line(x1,y1,x2,y2,color,width=1,dash=[]){ctx.beginPath();ctx.setLineDash(dash);ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();ctx.setLineDash([]);}
+function label(text,x,y,size=12,color='#2b5d77',weight=650,align='center'){ctx.fillStyle=color;ctx.font=`${weight} ${size}px Inter, system-ui, sans-serif`;ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillText(text,x,y);}
+function arrowhead(x,y,phi,color,size=6){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-size*Math.cos(phi-.43),y-size*Math.sin(phi-.43));ctx.lineTo(x-size*Math.cos(phi+.43),y-size*Math.sin(phi+.43));ctx.closePath();ctx.fillStyle=color;ctx.fill();}
+let W=600,H=400,S=700,X0=450,Y0=290;
+const iconScale=()=>clamp(S/900,.56,1);
+function setScale(){const dpr=window.devicePixelRatio||1;const rect=canvas.getBoundingClientRect();W=Math.max(300,rect.width);H=Math.max(250,rect.height);const cw=Math.round(W*dpr),ch=Math.round(H*dpr);if(canvas.width!==cw||canvas.height!==ch){canvas.width=cw;canvas.height=ch;}ctx.setTransform(dpr,0,0,dpr,0,0);
+   S=Math.min((W-76)/.83,(H-118)/.28);S=Math.max(300,S);X0=36+.515*S;Y0=H-87;}
+function px(p){return {x:X0+p.x*S,y:Y0-p.y*S};}
+function drawTrack(){const a=rad(),co=Math.cos(a),si=Math.sin(a),top=px({x:-.48*co,y:.48*si}),c=curvePoints(),c0=px(c.p0),c1=px(c.p1),c2=px(c.p2),c3=px(c.p3),right=px({x:.32,y:0});
+ ctx.lineCap='round';ctx.lineJoin='round';
+ // faint ground and baseline
+ line(X0-25,Y0+10,X0+.32*S,Y0+10,'#daebf2',1);
+ // the rails are drawn as one continuous path: straight slope, short easing curve, level run-out
+ for(const [width,color] of [[13,'#b7d9e4'],[7,'#1a5777'],[2,'#7dc4dc']]){ctx.beginPath();ctx.moveTo(top.x,top.y);ctx.lineTo(c0.x,c0.y);ctx.bezierCurveTo(c1.x,c1.y,c2.x,c2.y,c3.x,c3.y);ctx.lineTo(right.x,right.y);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();}
+ // small high end stop block
+ ctx.save();ctx.translate(top.x,top.y);ctx.rotate(a);ctx.scale(iconScale(),iconScale());roundRect(-6,-23,12,28,3,'#184e6b','#0e3d59');ctx.restore();
+ // 35 cm dimension line below the straight incline, terminating at the projected incline foot
+ const start=px({x:-D*co,y:D*si}),foot=px({x:0,y:0});const n={x:-si,y:co},offset=30;const q1={x:start.x+n.x*offset,y:start.y+n.y*offset},q2={x:foot.x+n.x*offset,y:foot.y+n.y*offset};
+ line(start.x+n.x*15,start.y+n.y*15,q1.x+n.x*7,q1.y+n.y*7,'#8bb2c6',1.3,[3,3]);
+ line(q1.x,q1.y,q2.x,q2.y,'#2a7d9c',1.4);
+ arrowhead(q1.x,q1.y,Math.atan2(q1.y-q2.y,q1.x-q2.x),'#2a7d9c',6);arrowhead(q2.x,q2.y,Math.atan2(q2.y-q1.y,q2.x-q1.x),'#2a7d9c',6);
+ // White label background prevents overlapping measurement line
+ const mx=(q1.x+q2.x)/2,my=(q1.y+q2.y)/2;ctx.save();ctx.translate(mx,my);ctx.rotate(a);roundRect(-58,-10,116,20,7,'#f1f9fded');label(W<600?'35 cm':'35 cm along incline',0,0,11,'#276d88',720);ctx.restore();
+ // marked release point
+ ctx.beginPath();ctx.arc(start.x,start.y,6,0,Math.PI*2);ctx.fillStyle='#f18c3c';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+ // height marker, dotted, at larger angles
+ if(angle>=15){const below=px({x:-D*co,y:0});line(start.x+23,start.y,below.x+23,below.y,'#85bbcd',1.3,[5,4]);label('h',start.x+37,(start.y+below.y)/2,13,'#347b97',720);}
+ // angle wedge at ideal foot
+ ctx.beginPath();ctx.arc(X0,Y0,48,Math.PI,Math.PI+a,false);ctx.strokeStyle='#e39849';ctx.lineWidth=2.5;ctx.stroke();
+ label('θ = '+angle+'°',X0-74,Y0-25-angle*1.2,12,'#aa631e',800);
+ // spacing from end of transition to centerline of sensor
+ const d1=px({x:END_CURVE,y:0}),d2=px({x:SENSOR_X,y:0});const yy=Y0+56;
+ line(d1.x,yy,d2.x,yy,'#629db4',1.5);arrowhead(d1.x,yy,Math.PI,'#629db4',5.5);arrowhead(d2.x,yy,0,'#629db4',5.5);line(d1.x,Y0+15,d1.x,yy+4,'#a8c9d7',1,[3,3]);line(d2.x,Y0+14,d2.x,yy+4,'#a8c9d7',1,[3,3]);label('20 cm', (d1.x+d2.x)/2,yy+15,12,'#326f8a',760);
+}
+function drawSensor(){const p=px({x:SENSOR_X,y:0}),scale=iconScale();ctx.save();ctx.translate(p.x,p.y);ctx.scale(scale,scale);const x=4,y=-59;
+ // 3 sonic wave arcs pointed at approaching cart
+ const emitterX=-2,emitterY=-30;
+ for(let i=0;i<3;i++){ctx.beginPath();ctx.arc(emitterX-2-i*8,emitterY,6+i*6,-.70,.70);ctx.strokeStyle=`rgba(18,143,165,${.45-i*.1})`;ctx.lineWidth=1.8;ctx.stroke();}
+ roundRect(x,y,44,51,7,'#22617b','#15465e');roundRect(x+7,y+8,30,19,3,'#a9f1ea');roundRect(x+12,y+34,19,5,2,'#5aa4b8');ctx.beginPath();ctx.arc(x+4,y+26,5,0,Math.PI*2);ctx.fillStyle='#0c435a';ctx.fill();ctx.strokeStyle='#e2f9fe';ctx.lineWidth=1.5;ctx.stroke();ctx.restore();
+ label(W<600?'Sensor':'Motion sensor',p.x+22*scale,Y0-67*scale-(W<600?8:0),W<600?10:11,'#1a5772',760);
+}
+function drawCatcher(){const p=px({x:STOP_X,y:0}),scale=iconScale();const shut=phase==='caught';ctx.save();ctx.translate(p.x,p.y);ctx.scale(scale,scale);
+ // catch arm head hung above track
+ line(6,-81,6,-46,'#2d7998',7);roundRect(-6,-92,24,15,5,'#13526e');
+ // jaws rotate inward at capture
+ ctx.save();ctx.translate(6,-45);ctx.strokeStyle='#1885a3';ctx.lineWidth=5;ctx.lineCap='round';ctx.beginPath();if(shut){ctx.moveTo(-5,-1);ctx.lineTo(-14,14);ctx.lineTo(-12,25);ctx.moveTo(5,-1);ctx.lineTo(14,14);ctx.lineTo(12,25);}else{ctx.moveTo(-5,-1);ctx.lineTo(-23,13);ctx.lineTo(-25,25);ctx.moveTo(5,-1);ctx.lineTo(23,13);ctx.lineTo(25,25);}ctx.stroke();ctx.restore();ctx.restore();
+ if(shut){roundRect(p.x-31,Y0-122*scale-11,66,20,9,'#e2f8ee');label('CAUGHT!',p.x+2,Y0-122*scale-1,10,'#108471',830);}else if(W>=600){label('Catcher',p.x+6,Y0-105*scale,10,'#417891',740);}
+}
+function drawCart(){let q=pose||{x:-D*Math.cos(rad()),y:D*Math.sin(rad()),alpha:rad()};let p=px(q);ctx.save();ctx.translate(p.x,p.y);ctx.rotate(q.alpha);ctx.scale(iconScale(),iconScale());
+ // normal direction points up (negative local y); wheel centers near rail surface
+ roundRect(-24,-24,48,21,6,'#f3a55e','#a95b25');roundRect(-18,-21,27,8,3,'#ffd5a4');roundRect(11,-22,9,10,2,'#e87b37');line(-20,-5,20,-5,'#c36b2a',2);
+ for(const x of [-15,15]){ctx.beginPath();ctx.arc(x,1,6.5,0,Math.PI*2);ctx.fillStyle='#1d4962';ctx.fill();ctx.strokeStyle='#e2f9fc';ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(x,1,1.5,0,Math.PI*2);ctx.fillStyle='#9bd2e3';ctx.fill();}
+ ctx.restore();}
+function drawSceneBackground(){const grd=ctx.createLinearGradient(0,0,0,H);grd.addColorStop(0,'#f6fcff');grd.addColorStop(.72,'#e9f6fc');grd.addColorStop(1,'#faffff');ctx.fillStyle=grd;ctx.fillRect(0,0,W,H);ctx.fillStyle='#dceaf0';ctx.fillRect(0,Y0+74,W,H-(Y0+74));
+ // subtle grid markers (unobtrusive) 
+ ctx.strokeStyle='#d7eaf3';ctx.lineWidth=.7;for(let i=-.45;i<.35;i+=.10){let x=X0+i*S;if(x>5&&x<W){ctx.beginPath();ctx.moveTo(x,Y0+68);ctx.lineTo(x,Y0+72);ctx.stroke();}}
+}
+function draw(){setScale();ctx.clearRect(0,0,W,H);drawSceneBackground();drawTrack();drawSensor();drawCart();drawCatcher();}
+// Observers keep the real canvas resolution and annotations aligned when the browser is resized.
+if(typeof ResizeObserver!=='undefined')new ResizeObserver(draw).observe($('trackHolder'));else window.addEventListener('resize',draw);
+$('playbackSpeed').value='0.45';setPhase('ready');refreshReadout();refreshTable();draw();
+})();
+</script>
+</body>
+</html>
